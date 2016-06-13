@@ -40,6 +40,7 @@
     self.title = @"Companies";
     
     
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,9 +76,38 @@
     // Configure the cell...
     
     cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
-    [cell.imageView setImage:[UIImage imageNamed:@"Sunflower.gif"]];
+    if([cell.textLabel.text isEqualToString:@"Apple"]){
+        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Apple@2x.png"]];
+    }
+    if([cell.textLabel.text isEqualToString:@"Google"]){
+        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Google@2x.png"]];
+    }
+    if([cell.textLabel.text isEqualToString:@"Tesla"]){
+        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Tesla@2x.png"]];
+    }
+    if([cell.textLabel.text isEqualToString:@"Twitter"]){
+        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Twitter@2x.png"]];
+    }
     return cell;
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        
+        //cannot delete without removing the object in the array. (Because the array count is responsible for the number of rows?)
+        [self.companyList removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadData]; // tell table to refresh now
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -124,15 +154,23 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    
+    cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
 
-
-    if (indexPath.row == 0){
+    if ([cell.textLabel.text isEqualToString:@"Apple"]){
         self.productViewController.title = @"Apple Products";
-    } else if(indexPath.row == 1){
+    } else if([cell.textLabel.text isEqualToString:@"Google"]){
         self.productViewController.title = @"Google Products";
-    } else if(indexPath.row == 2){
+    } else if([cell.textLabel.text isEqualToString:@"Tesla"]){
         self.productViewController.title = @"Tesla Products";
-    } else if(indexPath.row == 3){
+    } else if([cell.textLabel.text isEqualToString:@"Twitter"]){
         self.productViewController.title = @"Twitter Products";
     }
     
