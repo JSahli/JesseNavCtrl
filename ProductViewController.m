@@ -38,10 +38,14 @@
     
     [super viewWillAppear:animated];
     
-    if ([self.title isEqualToString:@"Apple mobile devices"]) {
-        self.products = @[@"iPad", @"iPod Touch",@"iPhone"];
-    } else {
-        self.products = @[@"Galaxy S4", @"Galaxy Note", @"Galaxy Tab"];
+    if ([self.title isEqualToString:@"Apple Products"]) {
+        self.products = [[NSMutableArray alloc]initWithObjects:@"MacBook Pro",@"iPhone 6",@"iMac", nil];
+    } else if([self.title isEqualToString:@"Google Products"])  {
+        self.products = [[NSMutableArray alloc]initWithObjects:@"ChromeBook",@"Nexus 6P",@"Pixel C", nil];
+    } else if ([self.title isEqualToString:@"Tesla Products"])  {
+        self.products = [[NSMutableArray alloc]initWithObjects:@"Model S",@"Model X",@"Model 3", nil];
+    } else if ([self.title isEqualToString:@"Twitter Products"]) {
+        self.products = [[NSMutableArray alloc]init];
     }
     [self.tableView reloadData];
 }
