@@ -32,7 +32,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"LOADED");
     
     self.appleProducts = [[NSMutableArray alloc]initWithObjects:@"MacBook Pro",@"iPhone 6",@"iMac", nil];
     self.googleProducts = [[NSMutableArray alloc]initWithObjects:@"ChromeBook",@"Nexus 6P",@"Pixel C", nil];

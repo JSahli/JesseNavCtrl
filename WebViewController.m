@@ -18,7 +18,7 @@
     [super viewDidLoad];
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     WKWebView *webView = [[WKWebView alloc]initWithFrame:[[UIScreen mainScreen]bounds] configuration:theConfiguration];
-    NSLog(@"YO I DUN LOADED");
+    NSLog(@"LOADED");
     
     if([self.title isEqualToString:@"MacBook Pro"]){
         
