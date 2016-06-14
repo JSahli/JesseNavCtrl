@@ -23,7 +23,6 @@
 		48A656E718163C1B00746D36 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A656E518163C1B00746D36 /* CompanyViewController.xib */; };
 		48A656EB18163F8700746D36 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656E918163F8700746D36 /* ProductViewController.m */; };
 		48A656EE1816468000746D36 /* Sunflower.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48A656ED1816468000746D36 /* Sunflower.gif */; };
-		9EF104F91D0F054F0064E8BD /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104CE1D0F054F0064E8BD /* Icon */; };
 		9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */; };
 		9EF104FB1D0F054F0064E8BD /* img-companyLogo_Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D01D0F054F0064E8BD /* img-companyLogo_Apple.png */; };
 		9EF104FC1D0F054F0064E8BD /* img-companyLogo_Apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D11D0F054F0064E8BD /* img-companyLogo_Apple@2x.png */; };
@@ -48,8 +47,6 @@
 		9EF1050F1D0F054F0064E8BD /* emptystate-homeView.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104E61D0F054F0064E8BD /* emptystate-homeView.png */; };
 		9EF105101D0F054F0064E8BD /* emptystate-homeView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104E71D0F054F0064E8BD /* emptystate-homeView@2x.png */; };
 		9EF105111D0F054F0064E8BD /* emptystate-homeView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104E81D0F054F0064E8BD /* emptystate-homeView@3x.png */; };
-		9EF105121D0F054F0064E8BD /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104E91D0F054F0064E8BD /* Icon */; };
-		9EF105131D0F054F0064E8BD /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104EA1D0F054F0064E8BD /* Icon */; };
 		9EF105141D0F054F0064E8BD /* btn-navAdd.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104EC1D0F054F0064E8BD /* btn-navAdd.pdf */; };
 		9EF105151D0F054F0064E8BD /* btn-navAdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104ED1D0F054F0064E8BD /* btn-navAdd.png */; };
 		9EF105161D0F054F0064E8BD /* btn-navAdd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104EE1D0F054F0064E8BD /* btn-navAdd@2x.png */; };
@@ -62,6 +59,16 @@
 		9EF1051D1D0F054F0064E8BD /* img-Product-01@1x.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104F61D0F054F0064E8BD /* img-Product-01@1x.pdf */; };
 		9EF1051E1D0F054F0064E8BD /* img-Product-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104F71D0F054F0064E8BD /* img-Product-01@2x.png */; };
 		9EF1051F1D0F054F0064E8BD /* img-Product-01@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104F81D0F054F0064E8BD /* img-Product-01@3x.png */; };
+		9EF105251D10464B0064E8BD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF105241D10464B0064E8BD /* WebViewController.m */; };
+		9EF105311D1051E10064E8BD /* teslaModelS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052A1D1051E10064E8BD /* teslaModelS.jpg */; };
+		9EF105321D1051E10064E8BD /* teslaModel3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052B1D1051E10064E8BD /* teslaModel3.jpg */; };
+		9EF105331D1051E10064E8BD /* iMac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052C1D1051E10064E8BD /* iMac.jpg */; };
+		9EF105341D1051E10064E8BD /* chromeBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052D1D1051E10064E8BD /* chromeBook.png */; };
+		9EF105351D1051E10064E8BD /* nexus6P.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052E1D1051E10064E8BD /* nexus6P.jpg */; };
+		9EF105361D1051E10064E8BD /* pixelC.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1052F1D1051E10064E8BD /* pixelC.png */; };
+		9EF105391D1052340064E8BD /* teslaModelX.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF105381D1052340064E8BD /* teslaModelX.jpg */; };
+		9EF1053B1D1055350064E8BD /* iphone6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1053A1D1055350064E8BD /* iphone6.jpeg */; };
+		9EF1053D1D1066860064E8BD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1053C1D1066860064E8BD /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +143,17 @@
 		9EF104F61D0F054F0064E8BD /* img-Product-01@1x.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-Product-01@1x.pdf"; sourceTree = "<group>"; };
 		9EF104F71D0F054F0064E8BD /* img-Product-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-01@2x.png"; sourceTree = "<group>"; };
 		9EF104F81D0F054F0064E8BD /* img-Product-01@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-01@3x.png"; sourceTree = "<group>"; };
+		9EF105231D10464B0064E8BD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; };
+		9EF105241D10464B0064E8BD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; };
+		9EF1052A1D1051E10064E8BD /* teslaModelS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teslaModelS.jpg; sourceTree = "<group>"; };
+		9EF1052B1D1051E10064E8BD /* teslaModel3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teslaModel3.jpg; sourceTree = "<group>"; };
+		9EF1052C1D1051E10064E8BD /* iMac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iMac.jpg; sourceTree = "<group>"; };
+		9EF1052D1D1051E10064E8BD /* chromeBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chromeBook.png; sourceTree = "<group>"; };
+		9EF1052E1D1051E10064E8BD /* nexus6P.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nexus6P.jpg; sourceTree = "<group>"; };
+		9EF1052F1D1051E10064E8BD /* pixelC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixelC.png; sourceTree = "<group>"; };
+		9EF105381D1052340064E8BD /* teslaModelX.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teslaModelX.jpg; sourceTree = "<group>"; };
+		9EF1053A1D1055350064E8BD /* iphone6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone6.jpeg; sourceTree = "<group>"; };
+		9EF1053C1D1066860064E8BD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF1053D1D1066860064E8BD /* WebKit.framework in Frameworks */,
 				48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */,
 				48A656B918163BF200746D36 /* UIKit.framework in Frameworks */,
 				48A656B518163BF200746D36 /* Foundation.framework in Frameworks */,
@@ -185,6 +204,8 @@
 			children = (
 				48A656E818163F8700746D36 /* ProductViewController.h */,
 				48A656E918163F8700746D36 /* ProductViewController.m */,
+				9EF105241D10464B0064E8BD /* WebViewController.m */,
+				9EF105231D10464B0064E8BD /* WebViewController.h */,
 			);
 			name = ProductViewController;
 			sourceTree = "<group>";
@@ -211,6 +232,7 @@
 		48A656B318163BF200746D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9EF1053C1D1066860064E8BD /* WebKit.framework */,
 				48A656B418163BF200746D36 /* Foundation.framework */,
 				48A656B618163BF200746D36 /* CoreGraphics.framework */,
 				48A656B818163BF200746D36 /* UIKit.framework */,
@@ -345,6 +367,14 @@
 				9EF104F61D0F054F0064E8BD /* img-Product-01@1x.pdf */,
 				9EF104F71D0F054F0064E8BD /* img-Product-01@2x.png */,
 				9EF104F81D0F054F0064E8BD /* img-Product-01@3x.png */,
+				9EF1052A1D1051E10064E8BD /* teslaModelS.jpg */,
+				9EF1052B1D1051E10064E8BD /* teslaModel3.jpg */,
+				9EF105381D1052340064E8BD /* teslaModelX.jpg */,
+				9EF1052C1D1051E10064E8BD /* iMac.jpg */,
+				9EF1052D1D1051E10064E8BD /* chromeBook.png */,
+				9EF1052E1D1051E10064E8BD /* nexus6P.jpg */,
+				9EF1052F1D1051E10064E8BD /* pixelC.png */,
+				9EF1053A1D1055350064E8BD /* iphone6.jpeg */,
 			);
 			path = "Product Images";
 			sourceTree = "<group>";
@@ -433,36 +463,41 @@
 				9EF104FB1D0F054F0064E8BD /* img-companyLogo_Apple.png in Resources */,
 				9EF105081D0F054F0064E8BD /* img-companyLogo_Twitter@2x.png in Resources */,
 				9EF105061D0F054F0064E8BD /* img-companyLogo_Twitter.pdf in Resources */,
+				9EF105391D1052340064E8BD /* teslaModelX.jpg in Resources */,
 				9EF105041D0F054F0064E8BD /* img-companyLogo_Tesla@2x.png in Resources */,
 				9EF1050B1D0F054F0064E8BD /* img-companyPhoto-01.png in Resources */,
 				9EF1050C1D0F054F0064E8BD /* img-companyPhoto-01@2x.png in Resources */,
-				9EF104F91D0F054F0064E8BD /* Icon in Resources */,
 				9EF105171D0F054F0064E8BD /* btn-navAdd@3x.png in Resources */,
 				9EF105051D0F054F0064E8BD /* img-companyLogo_Tesla@3x.png in Resources */,
 				9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */,
 				9EF1050D1D0F054F0064E8BD /* img-companyPhoto-01@3x.png in Resources */,
 				9EF1050A1D0F054F0064E8BD /* img-companyPhoto-01.pdf in Resources */,
+				9EF105341D1051E10064E8BD /* chromeBook.png in Resources */,
 				9EF105001D0F054F0064E8BD /* img-companyLogo_Google@2x.png in Resources */,
 				9EF104FD1D0F054F0064E8BD /* img-companyLogo_Apple@3x.png in Resources */,
+				9EF105311D1051E10064E8BD /* teslaModelS.jpg in Resources */,
 				9EF104FC1D0F054F0064E8BD /* img-companyLogo_Apple@2x.png in Resources */,
 				9EF1051B1D0F054F0064E8BD /* btn-navBack@3x.png in Resources */,
 				9EF1051E1D0F054F0064E8BD /* img-Product-01@2x.png in Resources */,
+				9EF1053B1D1055350064E8BD /* iphone6.jpeg in Resources */,
 				48A656E718163C1B00746D36 /* CompanyViewController.xib in Resources */,
-				9EF105131D0F054F0064E8BD /* Icon in Resources */,
 				9EF1051D1D0F054F0064E8BD /* img-Product-01@1x.pdf in Resources */,
+				9EF105351D1051E10064E8BD /* nexus6P.jpg in Resources */,
 				9EF104FF1D0F054F0064E8BD /* img-companyLogo_Google.png in Resources */,
 				9EF105191D0F054F0064E8BD /* btn-navBack.png in Resources */,
 				9EF105141D0F054F0064E8BD /* btn-navAdd.pdf in Resources */,
 				9EF105021D0F054F0064E8BD /* img-companyLogo_Tesla.pdf in Resources */,
 				9EF105151D0F054F0064E8BD /* btn-navAdd.png in Resources */,
-				9EF105121D0F054F0064E8BD /* Icon in Resources */,
 				9EF105161D0F054F0064E8BD /* btn-navAdd@2x.png in Resources */,
 				9EF1051C1D0F054F0064E8BD /* img-Product-01.png in Resources */,
 				9EF105071D0F054F0064E8BD /* img-companyLogo_Twitter.png in Resources */,
 				48A656BF18163BF200746D36 /* InfoPlist.strings in Resources */,
+				9EF105331D1051E10064E8BD /* iMac.jpg in Resources */,
+				9EF105361D1051E10064E8BD /* pixelC.png in Resources */,
 				9EF1050F1D0F054F0064E8BD /* emptystate-homeView.png in Resources */,
 				9EF105181D0F054F0064E8BD /* btn-navBack.pdf in Resources */,
 				9EF1051F1D0F054F0064E8BD /* img-Product-01@3x.png in Resources */,
+				9EF105321D1051E10064E8BD /* teslaModel3.jpg in Resources */,
 				9EF105111D0F054F0064E8BD /* emptystate-homeView@3x.png in Resources */,
 				9EF105101D0F054F0064E8BD /* emptystate-homeView@2x.png in Resources */,
 				9EF104FE1D0F054F0064E8BD /* img-companyLogo_Google.pdf in Resources */,
@@ -487,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A656E618163C1B00746D36 /* CompanyViewController.m in Sources */,
+				9EF105251D10464B0064E8BD /* WebViewController.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				48A656EB18163F8700746D36 /* ProductViewController.m in Sources */,
@@ -615,6 +651,7 @@
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "qcd.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -630,6 +667,7 @@
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "qcd.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

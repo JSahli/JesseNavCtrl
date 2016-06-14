@@ -53,14 +53,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [self.companyList count];
 }
@@ -132,21 +132,21 @@
 }
 */
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 }
-*/
 
-/*
+
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 
 #pragma mark - Table view delegate
@@ -154,23 +154,18 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = cell.textLabel.text;
     
-    cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
 
-    if ([cell.textLabel.text isEqualToString:@"Apple"]){
+    if ([cellText isEqualToString:@"Apple"]){
         self.productViewController.title = @"Apple Products";
-    } else if([cell.textLabel.text isEqualToString:@"Google"]){
+    } else if([cellText isEqualToString:@"Google"]){
         self.productViewController.title = @"Google Products";
-    } else if([cell.textLabel.text isEqualToString:@"Tesla"]){
+    } else if([cellText isEqualToString:@"Tesla"]){
         self.productViewController.title = @"Tesla Products";
-    } else if([cell.textLabel.text isEqualToString:@"Twitter"]){
+    } else if([cellText isEqualToString:@"Twitter"]){
         self.productViewController.title = @"Twitter Products";
     }
     
