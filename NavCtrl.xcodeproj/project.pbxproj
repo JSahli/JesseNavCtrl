@@ -23,6 +23,7 @@
 		48A656E718163C1B00746D36 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A656E518163C1B00746D36 /* CompanyViewController.xib */; };
 		48A656EB18163F8700746D36 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656E918163F8700746D36 /* ProductViewController.m */; };
 		48A656EE1816468000746D36 /* Sunflower.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48A656ED1816468000746D36 /* Sunflower.gif */; };
+		9E94E7611D11944F006B27E5 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7601D11944F006B27E5 /* DAO.m */; };
 		9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */; };
 		9EF104FB1D0F054F0064E8BD /* img-companyLogo_Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D01D0F054F0064E8BD /* img-companyLogo_Apple.png */; };
 		9EF104FC1D0F054F0064E8BD /* img-companyLogo_Apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D11D0F054F0064E8BD /* img-companyLogo_Apple@2x.png */; };
@@ -69,6 +70,8 @@
 		9EF105391D1052340064E8BD /* teslaModelX.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF105381D1052340064E8BD /* teslaModelX.jpg */; };
 		9EF1053B1D1055350064E8BD /* iphone6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF1053A1D1055350064E8BD /* iphone6.jpeg */; };
 		9EF1053D1D1066860064E8BD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1053C1D1066860064E8BD /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9EF105401D1099020064E8BD /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1053F1D1099020064E8BD /* Company.m */; };
+		9EF105461D1099CD0064E8BD /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF105451D1099CD0064E8BD /* Product.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,8 @@
 		48A656E818163F8700746D36 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = ../ProductViewController.h; sourceTree = "<group>"; };
 		48A656E918163F8700746D36 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = ../ProductViewController.m; sourceTree = "<group>"; };
 		48A656ED1816468000746D36 /* Sunflower.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunflower.gif; sourceTree = "<group>"; };
+		9E94E75F1D11944F006B27E5 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
+		9E94E7601D11944F006B27E5 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		9EF104CE1D0F054F0064E8BD /* Icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Icon"; sourceTree = "<group>"; };
 		9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Apple.pdf"; sourceTree = "<group>"; };
 		9EF104D01D0F054F0064E8BD /* img-companyLogo_Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Apple.png"; sourceTree = "<group>"; };
@@ -154,6 +159,10 @@
 		9EF105381D1052340064E8BD /* teslaModelX.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teslaModelX.jpg; sourceTree = "<group>"; };
 		9EF1053A1D1055350064E8BD /* iphone6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone6.jpeg; sourceTree = "<group>"; };
 		9EF1053C1D1066860064E8BD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9EF1053E1D1099020064E8BD /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		9EF1053F1D1099020064E8BD /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		9EF105441D1099CD0064E8BD /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		9EF105451D1099CD0064E8BD /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,8 +213,6 @@
 			children = (
 				48A656E818163F8700746D36 /* ProductViewController.h */,
 				48A656E918163F8700746D36 /* ProductViewController.m */,
-				9EF105241D10464B0064E8BD /* WebViewController.m */,
-				9EF105231D10464B0064E8BD /* WebViewController.h */,
 			);
 			name = ProductViewController;
 			sourceTree = "<group>";
@@ -245,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				483796CB1BCBF7A00062D5AB /* AppDelegate */,
+				9EF105431D1099900064E8BD /* Product */,
+				9EF105421D1099560064E8BD /* Company */,
+				9EF105411D1099110064E8BD /* WebViewController */,
 				483796CC1BCBF7C70062D5AB /* ParentViewController */,
 				483796CD1BCBF7EB0062D5AB /* ProductViewController */,
 				48A656C618163BF200746D36 /* Images.xcassets */,
@@ -377,6 +387,35 @@
 				9EF1053A1D1055350064E8BD /* iphone6.jpeg */,
 			);
 			path = "Product Images";
+			sourceTree = "<group>";
+		};
+		9EF105411D1099110064E8BD /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9EF105231D10464B0064E8BD /* WebViewController.h */,
+				9EF105241D10464B0064E8BD /* WebViewController.m */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
+		9EF105421D1099560064E8BD /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				9EF1053E1D1099020064E8BD /* Company.h */,
+				9EF1053F1D1099020064E8BD /* Company.m */,
+			);
+			name = Company;
+			sourceTree = "<group>";
+		};
+		9EF105431D1099900064E8BD /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				9E94E75F1D11944F006B27E5 /* DAO.h */,
+				9E94E7601D11944F006B27E5 /* DAO.m */,
+				9EF105441D1099CD0064E8BD /* Product.h */,
+				9EF105451D1099CD0064E8BD /* Product.m */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,8 +560,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF105461D1099CD0064E8BD /* Product.m in Sources */,
 				48A656E618163C1B00746D36 /* CompanyViewController.m in Sources */,
+				9EF105401D1099020064E8BD /* Company.m in Sources */,
 				9EF105251D10464B0064E8BD /* WebViewController.m in Sources */,
+				9E94E7611D11944F006B27E5 /* DAO.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				48A656EB18163F8700746D36 /* ProductViewController.m in Sources */,

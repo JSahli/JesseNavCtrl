@@ -36,6 +36,8 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+    
+    
     self.companyList = [[NSMutableArray alloc]initWithObjects:@"Apple", @"Google", @"Tesla", @"Twitter", nil];
     self.title = @"Companies";
     
