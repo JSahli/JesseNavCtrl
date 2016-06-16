@@ -11,11 +11,13 @@
 @implementation Company
 
 - (id)initWithName: (NSString*) company
-       andProducts: (NSMutableArray*) productArray {
+          Products: (NSMutableArray*) productArray
+       ImageString: (NSString*) imageName {
     
     self = [super init];
     if (self) {
         self.companyName = company;
+        self.companyImage = [UIImage imageNamed:imageName];
         self.products = productArray;
     }
     return self;

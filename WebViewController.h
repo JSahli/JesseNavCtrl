@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+#import "DAO.h"
+#import "Product.h"
 
 @interface WebViewController : UIViewController
+
+@property (nonatomic, retain) Product *product;
 
 @end

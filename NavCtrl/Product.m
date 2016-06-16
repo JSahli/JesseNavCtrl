@@ -11,11 +11,14 @@
 @implementation Product
 
 -(id)initWithName: (NSString*) name
-           andURL: (NSURL*) url{
+              URL: (NSURL*) url
+      ImageString: (NSString*) imageName {
+    
     self = [super init];
     if (self) {
         self.productName = name;
         self.productURL = url;
+        self.productImage = [UIImage imageNamed:imageName];
     }
     return self;
 }

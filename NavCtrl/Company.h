@@ -14,8 +14,10 @@
 //@property NSMutableArray<Product *> *products; Should I make it specifically product objects?
 @property (nonatomic, retain) NSString *companyName;
 @property (nonatomic, retain) NSMutableArray<Product*> *products;
+@property (nonatomic, retain) UIImage *companyImage;
 
 - (id)initWithName: (NSString*) company
-       andProducts: (NSMutableArray*) productArray;
+          Products: (NSMutableArray*) productArray
+       ImageString: (NSString*) imageName;
 
 @end

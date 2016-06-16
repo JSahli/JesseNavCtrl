@@ -35,14 +35,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
-    
-    
-    self.companyList = [[NSMutableArray alloc]initWithObjects:@"Apple", @"Google", @"Tesla", @"Twitter", nil];
+    DAO *dataManager = [DAO dataManager];
+    self.companyList = dataManager.companyArray;
     self.title = @"Companies";
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,20 +71,10 @@
     }
     
     // Configure the cell...
+    Company *company = [self.companyList objectAtIndex:[indexPath row]];
+    cell.textLabel.text = company.companyName;
+    [cell.imageView setImage:company.companyImage];
     
-    cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
-    if([cell.textLabel.text isEqualToString:@"Apple"]){
-        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Apple@2x.png"]];
-    }
-    if([cell.textLabel.text isEqualToString:@"Google"]){
-        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Google@2x.png"]];
-    }
-    if([cell.textLabel.text isEqualToString:@"Tesla"]){
-        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Tesla@2x.png"]];
-    }
-    if([cell.textLabel.text isEqualToString:@"Twitter"]){
-        [cell.imageView setImage:[UIImage imageNamed:@"img-companyLogo_Twitter@2x.png"]];
-    }
     return cell;
 }
 
@@ -103,9 +88,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         
-        //cannot delete without removing the object in the array. (Because the array count is responsible for the number of rows?)
+        
         [self.companyList removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -138,6 +123,9 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    Company *company = [self.companyList objectAtIndex:fromIndexPath.row];
+    [self.companyList removeObjectAtIndex:fromIndexPath.row];
+    [self.companyList insertObject:company atIndex:toIndexPath.row];
 }
 
 
@@ -156,26 +144,10 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = cell.textLabel.text;
-    
-
-    if ([cellText isEqualToString:@"Apple"]){
-        self.productViewController.title = @"Apple Products";
-    } else if([cellText isEqualToString:@"Google"]){
-        self.productViewController.title = @"Google Products";
-    } else if([cellText isEqualToString:@"Tesla"]){
-        self.productViewController.title = @"Tesla Products";
-    } else if([cellText isEqualToString:@"Twitter"]){
-        self.productViewController.title = @"Twitter Products";
-    }
-    
+    self.productViewController.company = self.companyList[[indexPath row]];
     [self.navigationController
         pushViewController:self.productViewController
         animated:YES];
-    
-
 }
  
 

@@ -14,4 +14,6 @@
 
 @property(nonatomic, retain) NSMutableArray<Company*> *companyArray;
 
++ (id) dataManager;
+
 @end
