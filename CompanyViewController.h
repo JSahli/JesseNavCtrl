@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DAO.h"
 #import "Company.h"
+#import "AddEditViewController.h"
 
 @class ProductViewController;
 
@@ -17,5 +18,6 @@
 
 @property (nonatomic, retain) NSMutableArray *companyList;
 @property (nonatomic, retain) IBOutlet  ProductViewController * productViewController;
+@property (nonatomic, retain) AddEditViewController *addEditViewController;
 
 @end

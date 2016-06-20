@@ -51,6 +51,14 @@ if (self = [super init]) {
 return self;
 }
 
+-(void)addCompanyWithName: (NSString*) name ImagePath: (NSString*) imageString
+{
+    Company *newCompany = [[Company alloc] initWithName:name ImageName:imageString];
+    [self.companyArray addObject:newCompany];
+    
+    //Will my method work? or will I keep addind the same company variable?
+}
+
 
 
 @end

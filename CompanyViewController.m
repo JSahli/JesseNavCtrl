@@ -33,11 +33,31 @@
      self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem
+    UIBarButtonItem *addBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn-navAdd.png"] style:UIBarButtonItemStylePlain target:self action:@selector(addButtonAction)];
+    self.navigationItem.rightBarButtonItem = addBarButton;
+    self.tableView.allowsSelectionDuringEditing = YES;
+   
     DAO *dataManager = [DAO dataManager];
     self.companyList = dataManager.companyArray;
     self.title = @"Companies";
+    NSLog(@"VDL ran");
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    DAO *dataManager = [DAO dataManager];
+    self.companyList = dataManager.companyArray;
+    self.title = @"Companies";
+    [self.tableView reloadData];
+    NSLog(@"VWA ran");
+}
+
+-(void)addButtonAction {
+    self.addEditViewController = [[AddEditViewController alloc]init];
+    self.addEditViewController.title = @"Add Company";
+    self.addEditViewController.editMode = NO;
+    [self.navigationController pushViewController:self.addEditViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,21 +98,20 @@
     return cell;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
 
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        
         
         [self.companyList removeObjectAtIndex:indexPath.row];
 //        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadData]; // tell table to refresh now
     }
+    
 }
 
 
@@ -144,6 +163,19 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     DAO *dataManager = [DAO dataManager];
+    
+    if (tableView.editing == YES) {
+        Company *company = self.companyList[[indexPath row]];
+        self.addEditViewController = [[AddEditViewController alloc]init];
+        self.addEditViewController.title = @"Edit Company";
+        dataManager.companyToEdit = company;
+        self.addEditViewController.editMode = YES;
+        [self.navigationController pushViewController:self.addEditViewController animated:YES];
+        return;
+    }
+
+    
     self.productViewController.company = self.companyList[[indexPath row]];
     [self.navigationController
         pushViewController:self.productViewController

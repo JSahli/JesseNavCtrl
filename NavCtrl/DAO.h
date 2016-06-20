@@ -13,7 +13,9 @@
 @interface DAO : NSObject
 
 @property(nonatomic, retain) NSMutableArray<Company*> *companyArray;
+@property(nonatomic, retain) Company *companyToEdit;
 
 + (id) dataManager;
+-(void)addCompanyWithName: (NSString*) name ImagePath: (NSString*) imageString;
 
 @end

@@ -18,7 +18,20 @@
     if (self) {
         self.companyName = company;
         self.companyImage = [UIImage imageNamed:imageName];
+        self.companyImageString = imageName;
         self.products = productArray;
+    }
+    return self;
+}
+
+- (id)initWithName: (NSString*) company
+    ImageName: (NSString*) imageName
+{
+    self = [super init];
+    if (self) {
+        self.companyName = company;
+        self.companyImageString = imageName;
+        self.companyImage = [UIImage imageNamed:imageName];
     }
     return self;
 }

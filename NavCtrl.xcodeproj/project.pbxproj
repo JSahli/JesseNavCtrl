@@ -24,6 +24,9 @@
 		48A656EB18163F8700746D36 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656E918163F8700746D36 /* ProductViewController.m */; };
 		48A656EE1816468000746D36 /* Sunflower.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48A656ED1816468000746D36 /* Sunflower.gif */; };
 		9E94E7611D11944F006B27E5 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7601D11944F006B27E5 /* DAO.m */; };
+		9E94E7651D134D8A006B27E5 /* AddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7631D134D8A006B27E5 /* AddEditViewController.m */; };
+		9E94E7661D134D8A006B27E5 /* AddEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E7641D134D8A006B27E5 /* AddEditViewController.xib */; };
+		9E94E7691D185F4F006B27E5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E7681D185F4F006B27E5 /* Launch Screen.storyboard */; };
 		9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */; };
 		9EF104FB1D0F054F0064E8BD /* img-companyLogo_Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D01D0F054F0064E8BD /* img-companyLogo_Apple.png */; };
 		9EF104FC1D0F054F0064E8BD /* img-companyLogo_Apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104D11D0F054F0064E8BD /* img-companyLogo_Apple@2x.png */; };
@@ -109,6 +112,10 @@
 		48A656ED1816468000746D36 /* Sunflower.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunflower.gif; sourceTree = "<group>"; };
 		9E94E75F1D11944F006B27E5 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		9E94E7601D11944F006B27E5 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
+		9E94E7621D134D8A006B27E5 /* AddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditViewController.h; sourceTree = "<group>"; };
+		9E94E7631D134D8A006B27E5 /* AddEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditViewController.m; sourceTree = "<group>"; };
+		9E94E7641D134D8A006B27E5 /* AddEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEditViewController.xib; sourceTree = "<group>"; };
+		9E94E7681D185F4F006B27E5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9EF104CE1D0F054F0064E8BD /* Icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Icon"; sourceTree = "<group>"; };
 		9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Apple.pdf"; sourceTree = "<group>"; };
 		9EF104D01D0F054F0064E8BD /* img-companyLogo_Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Apple.png"; sourceTree = "<group>"; };
@@ -204,6 +211,7 @@
 			children = (
 				48A656E318163C1B00746D36 /* CompanyViewController.h */,
 				48A656E418163C1B00746D36 /* CompanyViewController.m */,
+				9E94E7681D185F4F006B27E5 /* Launch Screen.storyboard */,
 			);
 			name = ParentViewController;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 		48A656BA18163BF200746D36 /* NavCtrl */ = {
 			isa = PBXGroup;
 			children = (
+				9E94E7671D134D97006B27E5 /* AddEditViewController */,
 				483796CB1BCBF7A00062D5AB /* AppDelegate */,
 				9EF105431D1099900064E8BD /* Product */,
 				9EF105421D1099560064E8BD /* Company */,
@@ -293,6 +302,16 @@
 				48A656D618163BF200746D36 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E94E7671D134D97006B27E5 /* AddEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E94E7641D134D8A006B27E5 /* AddEditViewController.xib */,
+				9E94E7631D134D8A006B27E5 /* AddEditViewController.m */,
+				9E94E7621D134D8A006B27E5 /* AddEditViewController.h */,
+			);
+			name = AddEditViewController;
 			sourceTree = "<group>";
 		};
 		9EF104CC1D0F054F0064E8BD /* Assets */ = {
@@ -466,6 +485,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Aditya Narayan";
 				TargetAttributes = {
+					48A656B018163BF200746D36 = {
+						DevelopmentTeam = LT6AMJQ3D6;
+					};
 					48A656CB18163BF200746D36 = {
 						TestTargetID = 48A656B018163BF200746D36;
 					};
@@ -525,12 +547,14 @@
 				9EF104FF1D0F054F0064E8BD /* img-companyLogo_Google.png in Resources */,
 				9EF105191D0F054F0064E8BD /* btn-navBack.png in Resources */,
 				9EF105141D0F054F0064E8BD /* btn-navAdd.pdf in Resources */,
+				9E94E7661D134D8A006B27E5 /* AddEditViewController.xib in Resources */,
 				9EF105021D0F054F0064E8BD /* img-companyLogo_Tesla.pdf in Resources */,
 				9EF105151D0F054F0064E8BD /* btn-navAdd.png in Resources */,
 				9EF105161D0F054F0064E8BD /* btn-navAdd@2x.png in Resources */,
 				9EF1051C1D0F054F0064E8BD /* img-Product-01.png in Resources */,
 				9EF105071D0F054F0064E8BD /* img-companyLogo_Twitter.png in Resources */,
 				48A656BF18163BF200746D36 /* InfoPlist.strings in Resources */,
+				9E94E7691D185F4F006B27E5 /* Launch Screen.storyboard in Resources */,
 				9EF105331D1051E10064E8BD /* iMac.jpg in Resources */,
 				9EF105361D1051E10064E8BD /* pixelC.png in Resources */,
 				9EF1050F1D0F054F0064E8BD /* emptystate-homeView.png in Resources */,
@@ -562,6 +586,7 @@
 			files = (
 				9EF105461D1099CD0064E8BD /* Product.m in Sources */,
 				48A656E618163C1B00746D36 /* CompanyViewController.m in Sources */,
+				9E94E7651D134D8A006B27E5 /* AddEditViewController.m in Sources */,
 				9EF105401D1099020064E8BD /* Company.m in Sources */,
 				9EF105251D10464B0064E8BD /* WebViewController.m in Sources */,
 				9E94E7611D11944F006B27E5 /* DAO.m in Sources */,
@@ -688,11 +713,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "qcd.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = Jesse.NavCtrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -704,11 +732,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavCtrl/NavCtrl-Prefix.pch";
 				INFOPLIST_FILE = "NavCtrl/NavCtrl-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "qcd.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = Jesse.NavCtrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
