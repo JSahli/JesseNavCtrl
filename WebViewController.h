@@ -10,9 +10,11 @@
 #import <WebKit/WebKit.h>
 #import "DAO.h"
 #import "Product.h"
+#import "ProductAddEditViewController.h"
 
 @interface WebViewController : UIViewController
 
 @property (nonatomic, retain) Product *product;
+@property (nonatomic, retain) ProductAddEditViewController *productAddEditVC;
 
 @end

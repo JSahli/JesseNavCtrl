@@ -36,5 +36,16 @@
     return self;
 }
 
+-(void)addProductWithName: (NSString*) name urlWithString: (NSString*) url imageWithString: (NSString*) image {
+    
+    Product *newProduct = [[Product alloc]initWithName:name URL:url ImageString:image];
+    if (self.products != nil){
+        [self.products addObject:newProduct];
+    } else {
+        self.products = [[NSMutableArray alloc]initWithObjects:newProduct, nil];
+    }
+    
+}
+
 
 @end

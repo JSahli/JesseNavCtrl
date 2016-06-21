@@ -12,10 +12,12 @@
 
 @property (nonatomic, retain) NSString *productName;
 @property (nonatomic,retain) NSURL *productURL;
+@property (nonatomic,retain) NSString *productURLString;
+@property (nonatomic, retain) NSString *productImageString;
 @property (nonatomic, retain) UIImage *productImage;
 
 -(id)initWithName: (NSString*) name
-              URL: (NSURL*) url
+              URL: (NSString*) url
       ImageString: (NSString*) imageName;
 
 @end

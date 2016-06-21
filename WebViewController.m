@@ -22,6 +22,10 @@
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.product.productURL];
     [webView loadRequest:urlRequest];
     [self.view addSubview:webView];
+    
+    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editProduct)];
+    self.navigationItem.rightBarButtonItem = editBarButton;
+
 
     NSLog(@"LOADED");
     
@@ -33,6 +37,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) editProduct {
+    self.productAddEditVC = [[ProductAddEditViewController alloc]init];
+    self.productAddEditVC.editMode = YES;
+    [self.navigationController pushViewController:self.productAddEditVC animated:YES];
 }
 
 /*

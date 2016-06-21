@@ -10,11 +10,13 @@
 #import "WebViewController.h"
 #import "DAO.h"
 #import "Product.h"
+#import "ProductAddEditViewController.h"
 
 @interface ProductViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, retain) NSMutableArray *products;
 @property (nonatomic, retain) WebViewController * webViewController;
 @property (nonatomic, retain) Company *company;
+@property (nonatomic, retain) ProductAddEditViewController *ProductAddEditVC;
 
 
 

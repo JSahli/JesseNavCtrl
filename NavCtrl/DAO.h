@@ -14,6 +14,8 @@
 
 @property(nonatomic, retain) NSMutableArray<Company*> *companyArray;
 @property(nonatomic, retain) Company *companyToEdit;
+@property(nonatomic, retain) Company *companyToAppend;
+@property(nonatomic, retain) Product *productToEdit;
 
 + (id) dataManager;
 -(void)addCompanyWithName: (NSString*) name ImagePath: (NSString*) imageString;

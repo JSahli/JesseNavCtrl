@@ -8,6 +8,7 @@
 
 #import "ProductViewController.h"
 
+
 @interface ProductViewController ()
 
 @end
@@ -31,7 +32,10 @@
      self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.eButtonItem;
+    
+    UIBarButtonItem *addBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn-navAdd.png"] style:UIBarButtonItemStylePlain target:self action:@selector(addButtonAction)];
+    self.navigationItem.rightBarButtonItem = addBarButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,6 +50,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addButtonAction {
+    DAO *dataManager = [DAO dataManager];
+    dataManager.companyToAppend = self.company;
+    self.ProductAddEditVC = [[ProductAddEditViewController alloc]init];
+    self.ProductAddEditVC.editMode = NO;
+    [self.navigationController pushViewController:self.ProductAddEditVC animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -115,7 +127,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    DAO *dataManager = [DAO dataManager];
+    dataManager.productToEdit = self.products[[indexPath row]];
     self.webViewController = [[WebViewController alloc]init];
     self.webViewController.product = self.products[[indexPath row]];
     

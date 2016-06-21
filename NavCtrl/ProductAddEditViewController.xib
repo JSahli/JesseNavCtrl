@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductAddEditViewController">
+            <connections>
+                <outlet property="imageTextField" destination="8vk-Pn-HgK" id="fsk-NR-DnQ"/>
+                <outlet property="nameTextField" destination="Bcz-JL-Qnl" id="wCR-uG-DHg"/>
+                <outlet property="urlTextField" destination="Sxd-0v-ptl" id="i7r-XA-Hvl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sxd-0v-ptl">
+                    <rect key="frame" x="65" y="218" width="469" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vk-Pn-HgK">
+                    <rect key="frame" x="65" y="285" width="470" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bcz-JL-Qnl">
+                    <rect key="frame" x="65" y="149" width="469" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Sxd-0v-ptl" secondAttribute="trailing" constant="66" id="0Sg-Kg-PWW"/>
+                <constraint firstAttribute="trailing" secondItem="8vk-Pn-HgK" secondAttribute="trailing" constant="65" id="Lt1-jz-8ym"/>
+                <constraint firstItem="Sxd-0v-ptl" firstAttribute="top" secondItem="Bcz-JL-Qnl" secondAttribute="bottom" constant="39" id="TIA-kl-xdc"/>
+                <constraint firstAttribute="trailing" secondItem="Bcz-JL-Qnl" secondAttribute="trailing" constant="66" id="UB4-r9-cMw"/>
+                <constraint firstItem="8vk-Pn-HgK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="eGw-Qv-hmI"/>
+                <constraint firstItem="8vk-Pn-HgK" firstAttribute="top" secondItem="Sxd-0v-ptl" secondAttribute="bottom" constant="37" id="h5m-Mb-Hql"/>
+                <constraint firstItem="Sxd-0v-ptl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="jQ5-52-oHz"/>
+                <constraint firstItem="8vk-Pn-HgK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="jmm-uf-kDk"/>
+                <constraint firstItem="Bcz-JL-Qnl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="lPg-3N-gFq"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

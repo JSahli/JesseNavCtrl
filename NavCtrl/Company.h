@@ -24,4 +24,6 @@
 - (id)initWithName: (NSString*) company
     ImageName: (NSString*) imageName;
 
+-(void)addProductWithName: (NSString*) name urlWithString: (NSString*) url imageWithString: (NSString*) image;
+
 @end

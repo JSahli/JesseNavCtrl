@@ -53,6 +53,7 @@
     if (self.editMode) {
         dataManager.companyToEdit.companyName = self.companyTextField.text;
         dataManager.companyToEdit.companyImageString = self.imageTextField.text;
+        dataManager.companyToEdit.companyImage = [UIImage imageNamed:self.imageTextField.text];
     }
     
     for (Company *company in dataManager.companyArray) {

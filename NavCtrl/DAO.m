@@ -27,15 +27,15 @@ if (self = [super init]) {
     
     //creating products with name, url, and image
     
-    Product *macbookPro = [[Product alloc]initWithName:@"MacBook Pro" URL:[NSURL URLWithString:@"https://www.apple.com/macbook/"] ImageString:@"img-Product-01@2x.png"];
-    Product *iMac = [[Product alloc]initWithName:@"iMac" URL:[NSURL URLWithString:@"http://www.apple.com/imac/"] ImageString:@"iMac.jpg"];
-    Product *iPhone6 = [[Product alloc]initWithName:@"iPhone 6" URL:[NSURL URLWithString:@"http://www.apple.com/iphone/"]ImageString:@"iphone6.jpeg"];
-    Product *chromeBook = [[Product alloc]initWithName:@"ChromeBook" URL:[NSURL URLWithString:@"https://www.google.com/chromebook/"]ImageString:@"chromeBook.png"];
-    Product *nexusP6 = [[Product alloc]initWithName:@"Nexus P6" URL:[NSURL URLWithString:@"https://store.google.com/product/nexus_6p"]ImageString:@"nexus6P.jpg"];
-    Product *pixelC = [[Product alloc]initWithName:@"Pixel C" URL:[NSURL URLWithString:@"https://pixel.google.com/pixel-c/"]ImageString:@"pixelC.png"];
-    Product *modelS = [[Product alloc]initWithName:@"Model S" URL:[NSURL URLWithString:@"https://www.teslamotors.com/models"]ImageString:@"teslaModelS.jpg"];
-    Product *modelX = [[Product alloc]initWithName:@"Model X" URL:[NSURL URLWithString:@"https://www.teslamotors.com/modelx"]ImageString:@"teslaModelX.jpg"];
-    Product *model3 = [[Product alloc]initWithName:@"Model 3" URL:[NSURL URLWithString:@"https://www.teslamotors.com/model3"]ImageString:@"teslaModel3.jpg"];
+    Product *macbookPro = [[Product alloc]initWithName:@"MacBook Pro" URL:@"https://www.apple.com/macbook/" ImageString:@"img-Product-01@2x.png"];
+    Product *iMac = [[Product alloc]initWithName:@"iMac" URL:@"http://www.apple.com/imac/" ImageString:@"iMac.jpg"];
+    Product *iPhone6 = [[Product alloc]initWithName:@"iPhone 6" URL:@"http://www.apple.com/iphone/"ImageString:@"iphone6.jpeg"];
+    Product *chromeBook = [[Product alloc]initWithName:@"ChromeBook" URL:@"https://www.google.com/chromebook/"ImageString:@"chromeBook.png"];
+    Product *nexusP6 = [[Product alloc]initWithName:@"Nexus P6" URL:@"https://store.google.com/product/nexus_6p"ImageString:@"nexus6P.jpg"];
+    Product *pixelC = [[Product alloc]initWithName:@"Pixel C" URL:@"https://pixel.google.com/pixel-c/"ImageString:@"pixelC.png"];
+    Product *modelS = [[Product alloc]initWithName:@"Model S" URL:@"https://www.teslamotors.com/models"ImageString:@"teslaModelS.jpg"];
+    Product *modelX = [[Product alloc]initWithName:@"Model X" URL:@"https://www.teslamotors.com/modelx"ImageString:@"teslaModelX.jpg"];
+    Product *model3 = [[Product alloc]initWithName:@"Model 3" URL:@"https://www.teslamotors.com/model3"ImageString:@"teslaModel3.jpg"];
     
     //creating companys with name, products, and image
     
