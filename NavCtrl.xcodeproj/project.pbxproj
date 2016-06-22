@@ -10,7 +10,6 @@
 		48A656B518163BF200746D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B418163BF200746D36 /* Foundation.framework */; };
 		48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B618163BF200746D36 /* CoreGraphics.framework */; };
 		48A656B918163BF200746D36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A656B818163BF200746D36 /* UIKit.framework */; };
-		48A656BF18163BF200746D36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A656BD18163BF200746D36 /* InfoPlist.strings */; };
 		48A656C118163BF200746D36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656C018163BF200746D36 /* main.m */; };
 		48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656C418163BF200746D36 /* NavControllerAppDelegate.m */; };
 		48A656C718163BF200746D36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A656C618163BF200746D36 /* Images.xcassets */; };
@@ -570,7 +569,6 @@
 				9EF105161D0F054F0064E8BD /* btn-navAdd@2x.png in Resources */,
 				9EF1051C1D0F054F0064E8BD /* img-Product-01.png in Resources */,
 				9EF105071D0F054F0064E8BD /* img-companyLogo_Twitter.png in Resources */,
-				48A656BF18163BF200746D36 /* InfoPlist.strings in Resources */,
 				9E94E7691D185F4F006B27E5 /* Launch Screen.storyboard in Resources */,
 				9EF105331D1051E10064E8BD /* iMac.jpg in Resources */,
 				9EF105361D1051E10064E8BD /* pixelC.png in Resources */,

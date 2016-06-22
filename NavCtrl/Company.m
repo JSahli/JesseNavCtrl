@@ -11,8 +11,9 @@
 @implementation Company
 
 - (id)initWithName: (NSString*) company
-          Products: (NSMutableArray*) productArray
-       ImageString: (NSString*) imageName {
+          products: (NSMutableArray*) productArray
+       imageString: (NSString*) imageName
+       stockSymbol: (NSString*) symbol {
     
     self = [super init];
     if (self) {
@@ -20,18 +21,21 @@
         self.companyImage = [UIImage imageNamed:imageName];
         self.companyImageString = imageName;
         self.products = productArray;
+        self.stockSymbol = symbol;
     }
     return self;
 }
 
 - (id)initWithName: (NSString*) company
-    ImageName: (NSString*) imageName
+         imageName: (NSString*) imageName
+       stockSymbol: (NSString*) symbol
 {
     self = [super init];
     if (self) {
         self.companyName = company;
         self.companyImageString = imageName;
         self.companyImage = [UIImage imageNamed:imageName];
+        self.stockSymbol = symbol;
     }
     return self;
 }

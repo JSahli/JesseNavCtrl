@@ -13,6 +13,7 @@
 @interface AddEditViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField *companyTextField;
 @property (retain, nonatomic) IBOutlet UITextField *imageTextField;
+@property (retain, nonatomic) IBOutlet UITextField *stockSymbolTextField;
 
 @property (nonatomic) BOOL editMode;
 

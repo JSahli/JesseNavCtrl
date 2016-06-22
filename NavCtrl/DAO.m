@@ -25,6 +25,8 @@ static DAO *dataManager = nil;
     
 if (self = [super init]) {
     
+
+    
     //creating products with name, url, and image
     
     Product *macbookPro = [[Product alloc]initWithName:@"MacBook Pro" URL:@"https://www.apple.com/macbook/" ImageString:@"img-Product-01@2x.png"];
@@ -39,21 +41,77 @@ if (self = [super init]) {
     
     //creating companys with name, products, and image
     
-    Company *apple = [[Company alloc]initWithName:@"Apple" Products:[[NSMutableArray alloc]initWithObjects: macbookPro, iMac, iPhone6, nil] ImageString:@"img-companyLogo_Apple@2x.png"];
-    Company *google = [[Company alloc]initWithName:@"Google" Products:[[NSMutableArray alloc]initWithObjects: chromeBook, nexusP6, pixelC, nil] ImageString:@"img-companyLogo_Google@2x.png"];
-    Company *tesla = [[Company alloc]initWithName:@"Tesla" Products:[[NSMutableArray alloc]initWithObjects: modelS, modelX, model3, nil]ImageString:@"img-companyLogo_Tesla@2x.png"];
-    Company *twitter = [[Company alloc]initWithName:@"Twitter" Products:nil ImageString:@"img-companyLogo_Twitter@2x.png"];
+    Company *apple = [[Company alloc]initWithName:@"Apple" products:[[NSMutableArray alloc]initWithObjects: macbookPro, iMac, iPhone6, nil] imageString:@"img-companyLogo_Apple@2x.png" stockSymbol:@"AAPL"];
+    Company *google = [[Company alloc]initWithName:@"Google" products:[[NSMutableArray alloc]initWithObjects: chromeBook, nexusP6, pixelC, nil] imageString:@"img-companyLogo_Google@2x.png" stockSymbol:@"GOOG"];
+    Company *tesla = [[Company alloc]initWithName:@"Tesla" products:[[NSMutableArray alloc]initWithObjects: modelS, modelX, model3, nil]imageString:@"img-companyLogo_Tesla@2x.png" stockSymbol:@"TSLA"];
+    Company *twitter = [[Company alloc]initWithName:@"Twitter" products:nil imageString:@"img-companyLogo_Twitter@2x.png" stockSymbol:@"TWTR"];
     
     //creating an array of companies in the DAO
     
      self.companyArray = [[NSMutableArray alloc] initWithObjects: apple, google, tesla, twitter, nil];
+
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://finance.yahoo.com/d/quotes.csv?s=+AAPL+GOOG+TSLA+TWTR&f=sa"]];
+    
+    
+    NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
+    
+    for (Company *company in self.companyArray) {
+        urlShell = [urlShell stringByAppendingString:[NSString stringWithFormat:@"+%@",company.stockSymbol]];
+    }
+    
+    urlShell = [urlShell stringByAppendingString:@"&f=sa"];
+    NSLog(@"STOCKURL: %@", urlShell);
+    NSURL *dynamicURL = [NSURL URLWithString:urlShell];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:dynamicURL];
+    request.HTTPMethod = @"GET";
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        
+        if(error){
+            NSLog(@"error with NSURLSESSION!");
+        }
+        
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", dataString);
+        NSArray *stockArray = [dataString componentsSeparatedByString:@"\n"];
+        
+        self.stockDictionary = [[NSMutableDictionary alloc]init];
+        
+        for (NSString *x in stockArray) {
+            NSLog(@"%@", x);
+            
+            //Getting rid of quotation marks that came with the data and parsing the CSV string into an NSDictionary
+            NSString* newX = [x stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            NSArray *stockValues = [newX componentsSeparatedByString:@","];
+            if (stockValues.count < 2) {
+                break;
+            }
+            [self.stockDictionary setObject:stockValues[1] forKey:stockValues[0]];
+            
+            //            NSLog(@"%@", stockValues[0]);
+            //            NSLog(@"%@", stockValues[1]);
+        }
+        
+        NSLog(@"%@", self.stockDictionary);
+        NSLog(@"%@", [self.stockDictionary objectForKey:@"AAPL"]);
+        
+        for(Company *company in self.companyArray){
+            company.stockPrice = [self.stockDictionary objectForKey:company.stockSymbol];
+        }
+    }]
+     resume];
+
 }
 return self;
 }
 
--(void)addCompanyWithName: (NSString*) name ImagePath: (NSString*) imageString
+-(void)addCompanyWithName: (NSString*) name
+                imagePath: (NSString*) imageString
+              stockSymbol: (NSString*) symbol
 {
-    Company *newCompany = [[Company alloc] initWithName:name ImageName:imageString];
+    Company *newCompany = [[Company alloc] initWithName:name imageName:imageString stockSymbol:symbol];
     [self.companyArray addObject:newCompany];
     
     //Will my method work? or will I keep addind the same company variable?

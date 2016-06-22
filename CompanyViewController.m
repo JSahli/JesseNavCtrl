@@ -51,6 +51,61 @@
     self.title = @"Companies";
     [self.tableView reloadData];
     NSLog(@"VWA ran");
+    
+    //SHOULD NSURLSESSION HAPPEN IN DAO.M or in 
+    
+    NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
+    
+    for (Company *company in dataManager.companyArray) {
+        urlShell = [urlShell stringByAppendingString:[NSString stringWithFormat:@"+%@",company.stockSymbol]];
+    }
+    
+    urlShell = [urlShell stringByAppendingString:@"&f=sa"];
+    NSLog(@"STOCKURL: %@", urlShell);
+    NSURL *dynamicURL = [NSURL URLWithString:urlShell];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:dynamicURL];
+    request.HTTPMethod = @"GET";
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        
+        if(error){
+            NSLog(@"error with NSURLSESSION!");
+        }
+        
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", dataString);
+        NSArray *stockArray = [dataString componentsSeparatedByString:@"\n"];
+        
+        dataManager.stockDictionary = [[NSMutableDictionary alloc]init];
+        
+        for (NSString *x in stockArray) {
+            NSLog(@"%@", x);
+            
+            //Getting rid of quotation marks that came with the data and parsing the CSV string into an NSDictionary
+            NSString* newX = [x stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            NSArray *stockValues = [newX componentsSeparatedByString:@","];
+            if (stockValues.count < 2) {
+                break;
+            }
+            [dataManager.stockDictionary setObject:stockValues[1] forKey:stockValues[0]];
+            
+            //            NSLog(@"%@", stockValues[0]);
+            //            NSLog(@"%@", stockValues[1]);
+        }
+        
+        NSLog(@"%@", dataManager.stockDictionary);
+        NSLog(@"%@", [dataManager.stockDictionary objectForKey:@"AAPL"]);
+        
+        for(Company *company in dataManager.companyArray){
+            company.stockPrice = [dataManager.stockDictionary objectForKey:company.stockSymbol];
+        }
+    }]
+     resume];
+    
+    
+    
 }
 
 -(void)addButtonAction {
@@ -87,12 +142,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
     // Configure the cell...
     Company *company = [self.companyList objectAtIndex:[indexPath row]];
-    cell.textLabel.text = company.companyName;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", company.companyName, company.stockSymbol];
+    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.text = company.stockPrice;
     [cell.imageView setImage:company.companyImage];
     
     return cell;

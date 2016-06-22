@@ -34,6 +34,7 @@
     if (self.editMode) {
         self.companyTextField.text = dataManager.companyToEdit.companyName;
         self.imageTextField.text = dataManager.companyToEdit.companyImageString;
+        self.stockSymbolTextField.text = dataManager.companyToEdit.stockSymbol;
     }
     
     if (!self.editMode){
@@ -47,12 +48,13 @@
     DAO *dataManager = [DAO dataManager];
     
     if (!self.editMode) {
-        [dataManager addCompanyWithName:self.companyTextField.text ImagePath:self.imageTextField.text];
+        [dataManager addCompanyWithName:self.companyTextField.text imagePath:self.imageTextField.text stockSymbol:self.stockSymbolTextField.text];
     }
     
     if (self.editMode) {
         dataManager.companyToEdit.companyName = self.companyTextField.text;
         dataManager.companyToEdit.companyImageString = self.imageTextField.text;
+        dataManager.companyToEdit.stockSymbol = self.stockSymbolTextField.text;
         dataManager.companyToEdit.companyImage = [UIImage imageNamed:self.imageTextField.text];
     }
     
@@ -82,6 +84,7 @@
 - (void)dealloc {
     [_companyTextField release];
     [_imageTextField release];
+    [_stockSymbolTextField release];
     [super dealloc];
 }
 @end
