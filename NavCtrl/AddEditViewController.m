@@ -57,13 +57,7 @@
         dataManager.companyToEdit.stockSymbol = self.stockSymbolTextField.text;
         dataManager.companyToEdit.companyImage = [UIImage imageNamed:self.imageTextField.text];
     }
-    
-    for (Company *company in dataManager.companyArray) {
-         NSLog(@"%@", company.companyName);
-        NSLog(@"%@", company.companyImageString);
-    }
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning {

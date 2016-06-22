@@ -55,9 +55,9 @@
 - (void)addButtonAction {
     DAO *dataManager = [DAO dataManager];
     dataManager.companyToAppend = self.company;
-    self.ProductAddEditVC = [[ProductAddEditViewController alloc]init];
-    self.ProductAddEditVC.editMode = NO;
-    [self.navigationController pushViewController:self.ProductAddEditVC animated:YES];
+    self.productAddEditVC = [[ProductAddEditViewController alloc]init];
+    self.productAddEditVC.editMode = NO;
+    [self.navigationController pushViewController:self.productAddEditVC animated:YES];
 }
 
 #pragma mark - Table view data source

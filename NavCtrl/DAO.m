@@ -48,62 +48,8 @@ if (self = [super init]) {
     
     //creating an array of companies in the DAO
     
-     self.companyArray = [[NSMutableArray alloc] initWithObjects: apple, google, tesla, twitter, nil];
-
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://finance.yahoo.com/d/quotes.csv?s=+AAPL+GOOG+TSLA+TWTR&f=sa"]];
-    
-    
-    NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
-    
-    for (Company *company in self.companyArray) {
-        urlShell = [urlShell stringByAppendingString:[NSString stringWithFormat:@"+%@",company.stockSymbol]];
+    self.companyArray = [[NSMutableArray alloc] initWithObjects: apple, google, tesla, twitter, nil];
     }
-    
-    urlShell = [urlShell stringByAppendingString:@"&f=sa"];
-    NSLog(@"STOCKURL: %@", urlShell);
-    NSURL *dynamicURL = [NSURL URLWithString:urlShell];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:dynamicURL];
-    request.HTTPMethod = @"GET";
-    
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        
-        if(error){
-            NSLog(@"error with NSURLSESSION!");
-        }
-        
-        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", dataString);
-        NSArray *stockArray = [dataString componentsSeparatedByString:@"\n"];
-        
-        self.stockDictionary = [[NSMutableDictionary alloc]init];
-        
-        for (NSString *x in stockArray) {
-            NSLog(@"%@", x);
-            
-            //Getting rid of quotation marks that came with the data and parsing the CSV string into an NSDictionary
-            NSString* newX = [x stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            NSArray *stockValues = [newX componentsSeparatedByString:@","];
-            if (stockValues.count < 2) {
-                break;
-            }
-            [self.stockDictionary setObject:stockValues[1] forKey:stockValues[0]];
-            
-            //            NSLog(@"%@", stockValues[0]);
-            //            NSLog(@"%@", stockValues[1]);
-        }
-        
-        NSLog(@"%@", self.stockDictionary);
-        NSLog(@"%@", [self.stockDictionary objectForKey:@"AAPL"]);
-        
-        for(Company *company in self.companyArray){
-            company.stockPrice = [self.stockDictionary objectForKey:company.stockSymbol];
-        }
-    }]
-     resume];
-
-}
 return self;
 }
 

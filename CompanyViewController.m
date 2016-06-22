@@ -42,7 +42,6 @@
     DAO *dataManager = [DAO dataManager];
     self.companyList = dataManager.companyArray;
     self.title = @"Companies";
-    NSLog(@"VDL ran");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,18 +49,18 @@
     self.companyList = dataManager.companyArray;
     self.title = @"Companies";
     [self.tableView reloadData];
-    NSLog(@"VWA ran");
+    [self loadStockPrices];
+}
+
+-(void)loadStockPrices {
     
-    //SHOULD NSURLSESSION HAPPEN IN DAO.M or in 
-    
+    DAO *dataManager = [DAO dataManager];
     NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
-    
     for (Company *company in dataManager.companyArray) {
         urlShell = [urlShell stringByAppendingString:[NSString stringWithFormat:@"+%@",company.stockSymbol]];
     }
-    
     urlShell = [urlShell stringByAppendingString:@"&f=sa"];
-    NSLog(@"STOCKURL: %@", urlShell);
+//    NSLog(@"STOCKURL: %@", urlShell);
     NSURL *dynamicURL = [NSURL URLWithString:urlShell];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -75,13 +74,10 @@
         }
         
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", dataString);
         NSArray *stockArray = [dataString componentsSeparatedByString:@"\n"];
-        
         dataManager.stockDictionary = [[NSMutableDictionary alloc]init];
         
         for (NSString *x in stockArray) {
-            NSLog(@"%@", x);
             
             //Getting rid of quotation marks that came with the data and parsing the CSV string into an NSDictionary
             NSString* newX = [x stringByReplacingOccurrencesOfString:@"\"" withString:@""];
@@ -96,15 +92,20 @@
         }
         
         NSLog(@"%@", dataManager.stockDictionary);
-        NSLog(@"%@", [dataManager.stockDictionary objectForKey:@"AAPL"]);
         
         for(Company *company in dataManager.companyArray){
             company.stockPrice = [dataManager.stockDictionary objectForKey:company.stockSymbol];
         }
+        
+        //reload
+        //dispatch main
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
     }]
      resume];
-    
-    
+
     
 }
 
