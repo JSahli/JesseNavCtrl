@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString *stockPrice;
 @property (nonatomic, retain) UIImage *companyImage;
 @property (nonatomic, retain) NSString *companyImageString;
+@property int companyId;
 
 - (id)initWithName: (NSString*) company
           products: (NSMutableArray*) productArray
@@ -29,5 +30,10 @@
        stockSymbol: (NSString*) symbol;
 
 -(void)addProductWithName: (NSString*) name urlWithString: (NSString*) url imageWithString: (NSString*) image;
+
+- (id)initWithName: (NSString*) company
+       imageString: (NSString*) imageName
+       stockSymbol: (NSString*) symbol
+                id: (int)companyID;
 
 @end

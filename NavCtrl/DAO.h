@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Company.h"
 #import "Product.h"
+#import "sqlite3.h"
+
 
 @interface DAO : NSObject
 
@@ -22,6 +24,7 @@
 -(void)addCompanyWithName: (NSString*) name
                 imagePath: (NSString*) imageString
               stockSymbol: (NSString*) symbol;
+
 
 
 @end

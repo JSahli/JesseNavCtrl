@@ -51,5 +51,21 @@
     
 }
 
+//NEW init for SQLite
+- (id)initWithName: (NSString*) company
+       imageString: (NSString*) imageName
+       stockSymbol: (NSString*) symbol
+                id: (int)companyID {
+    
+    if (self) {
+        self.companyName = company;
+        self.companyImageString = imageName;
+        self.companyImage = [UIImage imageNamed:imageName];
+        self.stockSymbol = symbol;
+        self.companyId = companyID;
+    }
+    return self;
+    
+}
 
 @end

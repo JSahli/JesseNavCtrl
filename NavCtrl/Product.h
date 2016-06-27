@@ -15,9 +15,17 @@
 @property (nonatomic,retain) NSString *productURLString;
 @property (nonatomic, retain) NSString *productImageString;
 @property (nonatomic, retain) UIImage *productImage;
+@property int companyId;
+@property int productId;
 
 -(id)initWithName: (NSString*) name
               URL: (NSString*) url
       ImageString: (NSString*) imageName;
+
+-(id)initWithName: (NSString*) name
+              URL: (NSString*) url
+      ImageString: (NSString*) imageName
+               id: (int) productID
+          cmpnyId: (int) companyID;
 
 @end

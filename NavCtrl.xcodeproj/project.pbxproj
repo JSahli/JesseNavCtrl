@@ -22,6 +22,11 @@
 		48A656E718163C1B00746D36 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A656E518163C1B00746D36 /* CompanyViewController.xib */; };
 		48A656EB18163F8700746D36 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A656E918163F8700746D36 /* ProductViewController.m */; };
 		48A656EE1816468000746D36 /* Sunflower.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48A656ED1816468000746D36 /* Sunflower.gif */; };
+		9E1FAD6E1D1C841A003F2F2A /* NavDB.sqbpro in Resources */ = {isa = PBXBuildFile; fileRef = 9E1FAD6D1D1C841A003F2F2A /* NavDB.sqbpro */; };
+		9E1FAD6F1D1C841A003F2F2A /* NavDB.sqbpro in Resources */ = {isa = PBXBuildFile; fileRef = 9E1FAD6D1D1C841A003F2F2A /* NavDB.sqbpro */; };
+		9E1FAD731D1C8736003F2F2A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1FAD721D1C8736003F2F2A /* libsqlite3.0.tbd */; };
+		9E1FAD761D1D7734003F2F2A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FAD751D1D7734003F2F2A /* DBManager.m */; };
+		9E1FAD771D1D7734003F2F2A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FAD751D1D7734003F2F2A /* DBManager.m */; };
 		9E94E7611D11944F006B27E5 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7601D11944F006B27E5 /* DAO.m */; };
 		9E94E7651D134D8A006B27E5 /* AddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7631D134D8A006B27E5 /* AddEditViewController.m */; };
 		9E94E7661D134D8A006B27E5 /* AddEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E7641D134D8A006B27E5 /* AddEditViewController.xib */; };
@@ -111,6 +116,10 @@
 		48A656E818163F8700746D36 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = ../ProductViewController.h; sourceTree = "<group>"; };
 		48A656E918163F8700746D36 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = ../ProductViewController.m; sourceTree = "<group>"; };
 		48A656ED1816468000746D36 /* Sunflower.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunflower.gif; sourceTree = "<group>"; };
+		9E1FAD6D1D1C841A003F2F2A /* NavDB.sqbpro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NavDB.sqbpro; sourceTree = "<group>"; };
+		9E1FAD721D1C8736003F2F2A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9E1FAD741D1D7734003F2F2A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		9E1FAD751D1D7734003F2F2A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		9E94E75F1D11944F006B27E5 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		9E94E7601D11944F006B27E5 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		9E94E7621D134D8A006B27E5 /* AddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditViewController.h; sourceTree = "<group>"; };
@@ -181,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1FAD731D1C8736003F2F2A /* libsqlite3.0.tbd in Frameworks */,
 				9EF1053D1D1066860064E8BD /* WebKit.framework in Frameworks */,
 				48A656B718163BF200746D36 /* CoreGraphics.framework in Frameworks */,
 				48A656B918163BF200746D36 /* UIKit.framework in Frameworks */,
@@ -251,6 +261,7 @@
 		48A656B318163BF200746D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E1FAD721D1C8736003F2F2A /* libsqlite3.0.tbd */,
 				9EF1053C1D1066860064E8BD /* WebKit.framework */,
 				48A656B418163BF200746D36 /* Foundation.framework */,
 				48A656B618163BF200746D36 /* CoreGraphics.framework */,
@@ -303,6 +314,7 @@
 		48A656D418163BF200746D36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E1FAD6D1D1C841A003F2F2A /* NavDB.sqbpro */,
 				48A656D518163BF200746D36 /* NavCtrlTests-Info.plist */,
 				48A656D618163BF200746D36 /* InfoPlist.strings */,
 			);
@@ -446,6 +458,8 @@
 			children = (
 				9E94E75F1D11944F006B27E5 /* DAO.h */,
 				9E94E7601D11944F006B27E5 /* DAO.m */,
+				9E1FAD741D1D7734003F2F2A /* DBManager.h */,
+				9E1FAD751D1D7734003F2F2A /* DBManager.m */,
 				9EF105441D1099CD0064E8BD /* Product.h */,
 				9EF105451D1099CD0064E8BD /* Product.m */,
 			);
@@ -576,6 +590,7 @@
 				9EF105181D0F054F0064E8BD /* btn-navBack.pdf in Resources */,
 				9EF1051F1D0F054F0064E8BD /* img-Product-01@3x.png in Resources */,
 				9EF105321D1051E10064E8BD /* teslaModel3.jpg in Resources */,
+				9E1FAD6E1D1C841A003F2F2A /* NavDB.sqbpro in Resources */,
 				9EF105111D0F054F0064E8BD /* emptystate-homeView@3x.png in Resources */,
 				9EF105101D0F054F0064E8BD /* emptystate-homeView@2x.png in Resources */,
 				9EF104FE1D0F054F0064E8BD /* img-companyLogo_Google.pdf in Resources */,
@@ -588,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1FAD6F1D1C841A003F2F2A /* NavDB.sqbpro in Resources */,
 				48A656D818163BF200746D36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +622,7 @@
 				9EF105401D1099020064E8BD /* Company.m in Sources */,
 				9EF105251D10464B0064E8BD /* WebViewController.m in Sources */,
 				9E94E7611D11944F006B27E5 /* DAO.m in Sources */,
+				9E1FAD761D1D7734003F2F2A /* DBManager.m in Sources */,
 				48A656C518163BF200746D36 /* NavControllerAppDelegate.m in Sources */,
 				48A656C118163BF200746D36 /* main.m in Sources */,
 				48A656EB18163F8700746D36 /* ProductViewController.m in Sources */,
@@ -617,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A656DA18163BF200746D36 /* NavCtrlTests.m in Sources */,
+				9E1FAD771D1D7734003F2F2A /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

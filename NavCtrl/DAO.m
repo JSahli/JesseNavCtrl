@@ -8,6 +8,7 @@
 
 #import "DAO.h"
 
+
 static DAO *dataManager = nil;
 
 @implementation DAO
@@ -19,6 +20,7 @@ static DAO *dataManager = nil;
     }
     return dataManager;
 }
+
 
 
 -(id)init {
@@ -33,7 +35,7 @@ if (self = [super init]) {
     Product *iMac = [[Product alloc]initWithName:@"iMac" URL:@"http://www.apple.com/imac/" ImageString:@"iMac.jpg"];
     Product *iPhone6 = [[Product alloc]initWithName:@"iPhone 6" URL:@"http://www.apple.com/iphone/"ImageString:@"iphone6.jpeg"];
     Product *chromeBook = [[Product alloc]initWithName:@"ChromeBook" URL:@"https://www.google.com/chromebook/"ImageString:@"chromeBook.png"];
-    Product *nexusP6 = [[Product alloc]initWithName:@"Nexus P6" URL:@"https://store.google.com/product/nexus_6p"ImageString:@"nexus6P.jpg"];
+    Product *nexusP6 = [[Product alloc]initWithName:@"Nexus 6P" URL:@"https://store.google.com/product/nexus_6p"ImageString:@"nexus6P.jpg"];
     Product *pixelC = [[Product alloc]initWithName:@"Pixel C" URL:@"https://pixel.google.com/pixel-c/"ImageString:@"pixelC.png"];
     Product *modelS = [[Product alloc]initWithName:@"Model S" URL:@"https://www.teslamotors.com/models"ImageString:@"teslaModelS.jpg"];
     Product *modelX = [[Product alloc]initWithName:@"Model X" URL:@"https://www.teslamotors.com/modelx"ImageString:@"teslaModelX.jpg"];
