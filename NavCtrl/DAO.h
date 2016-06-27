@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Company.h"
 #import "Product.h"
-#import "sqlite3.h"
+#import "DBManager.h"
 
 
 @interface DAO : NSObject
@@ -19,11 +19,14 @@
 @property(nonatomic, retain) Company *companyToEdit;
 @property(nonatomic, retain) Company *companyToAppend;
 @property(nonatomic, retain) Product *productToEdit;
+@property(nonatomic, retain) DBManager *sqlManager;
 
 + (id) dataManager;
 -(void)addCompanyWithName: (NSString*) name
                 imagePath: (NSString*) imageString
               stockSymbol: (NSString*) symbol;
+
+
 
 
 

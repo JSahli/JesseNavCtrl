@@ -13,6 +13,23 @@
 
 @interface DBManager : NSObject
 
+@property (nonatomic, retain) NSMutableArray *resultsArray;
+
 -(id)initWithDatabaseFilename:(NSString*)dbFilename;
+-(void)pullDataFromSQL;
+-(void)addCompanyWithName:(NSString*)name
+              stockSymbol:(NSString*)stock
+              imageString:(NSString*)image;
+
+-(void)addProductWithName:(NSString*)name
+                urlString:(NSString*)url
+              imageString:(NSString*)image
+               forCompany: (Company*)company;
+
+-(void)deleteCompany: (int) companyId;
+-(void)deleteProduct: (int) productID;
+-(void)editCompany:(Company*) company;
+-(void)editProduct:(Product*) product;
+-(void)rearrangeCompanyFrom:(int) fromIndex to:(int) toIndex;
 
 @end

@@ -27,6 +27,8 @@
 		9E1FAD731D1C8736003F2F2A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1FAD721D1C8736003F2F2A /* libsqlite3.0.tbd */; };
 		9E1FAD761D1D7734003F2F2A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FAD751D1D7734003F2F2A /* DBManager.m */; };
 		9E1FAD771D1D7734003F2F2A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FAD751D1D7734003F2F2A /* DBManager.m */; };
+		9E1FAD7B1D21B136003F2F2A /* NavDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 9E1FAD7A1D21B136003F2F2A /* NavDatabase.db */; };
+		9E1FAD7C1D21B136003F2F2A /* NavDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 9E1FAD7A1D21B136003F2F2A /* NavDatabase.db */; };
 		9E94E7611D11944F006B27E5 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7601D11944F006B27E5 /* DAO.m */; };
 		9E94E7651D134D8A006B27E5 /* AddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E7631D134D8A006B27E5 /* AddEditViewController.m */; };
 		9E94E7661D134D8A006B27E5 /* AddEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E7641D134D8A006B27E5 /* AddEditViewController.xib */; };
@@ -120,6 +122,7 @@
 		9E1FAD721D1C8736003F2F2A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9E1FAD741D1D7734003F2F2A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		9E1FAD751D1D7734003F2F2A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		9E1FAD7A1D21B136003F2F2A /* NavDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = NavDatabase.db; sourceTree = "<group>"; };
 		9E94E75F1D11944F006B27E5 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		9E94E7601D11944F006B27E5 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		9E94E7621D134D8A006B27E5 /* AddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditViewController.h; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 			children = (
 				9E1FAD6D1D1C841A003F2F2A /* NavDB.sqbpro */,
 				48A656D518163BF200746D36 /* NavCtrlTests-Info.plist */,
+				9E1FAD7A1D21B136003F2F2A /* NavDatabase.db */,
 				48A656D618163BF200746D36 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -545,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1FAD7B1D21B136003F2F2A /* NavDatabase.db in Resources */,
 				9EF1050E1D0F054F0064E8BD /* emptystate-homeView.pdf in Resources */,
 				48A656EE1816468000746D36 /* Sunflower.gif in Resources */,
 				9EF105091D0F054F0064E8BD /* img-companyLogo_Twitter@3x.png in Resources */,
@@ -604,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E1FAD6F1D1C841A003F2F2A /* NavDB.sqbpro in Resources */,
+				9E1FAD7C1D21B136003F2F2A /* NavDatabase.db in Resources */,
 				48A656D818163BF200746D36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

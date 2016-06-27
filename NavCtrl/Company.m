@@ -36,6 +36,7 @@
         self.companyImageString = imageName;
         self.companyImage = [UIImage imageNamed:imageName];
         self.stockSymbol = symbol;
+        self.products = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -63,6 +64,8 @@
         self.companyImage = [UIImage imageNamed:imageName];
         self.stockSymbol = symbol;
         self.companyId = companyID;
+        self.products = [[NSMutableArray alloc] init];
+
     }
     return self;
     

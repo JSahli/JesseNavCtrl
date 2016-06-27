@@ -40,7 +40,10 @@
     DAO *dataManager = [DAO dataManager];
     
     if (!self.editMode) {
-        [dataManager.companyToAppend addProductWithName:self.nameTextField.text urlWithString:self.urlTextField.text imageWithString:self.imageTextField.text];
+
+//        [dataManager.companyToAppend addProductWithName:self.nameTextField.text urlWithString:self.urlTextField.text imageWithString:self.imageTextField.text]; REMOVE THIS IF IT WORKS WITH SQL
+        
+        [dataManager.sqlManager addProductWithName:self.nameTextField.text urlString:self.urlTextField.text imageString:self.imageTextField.text forCompany:dataManager.companyToAppend];
 
     }
     
@@ -49,6 +52,7 @@
         dataManager.productToEdit.productURL = [NSURL URLWithString:self.urlTextField.text];
         dataManager.productToEdit.productURLString = self.urlTextField.text;
         dataManager.productToEdit.productImage = [UIImage imageNamed:self.imageTextField.text];
+        [dataManager.sqlManager editProduct:dataManager.productToEdit];
     }
 
     //array of the existing view controllers on the nav control

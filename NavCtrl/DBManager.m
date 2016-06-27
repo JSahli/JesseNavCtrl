@@ -12,7 +12,6 @@
 
 @property (nonatomic, retain) NSString *documentsDirectory;
 @property (nonatomic, retain) NSString *databaseFilename;
-@property (nonatomic, retain) NSMutableArray *resultsArray;
 //@property sqlite3 *sqlDatabase; 
 
 -(void)copyDatabaseIntoDocumentsDirectory;
@@ -66,7 +65,9 @@
     {
         const char *sql_stmt = "SELECT * FROM Company";
         sqlite3_stmt *statement;
-        if(sqlite3_prepare_v2(sqlDB, sql_stmt, -1, &statement, nil) == SQLITE_OK) {
+        int sql_status_code = sqlite3_prepare_v2(sqlDB, sql_stmt, -1, &statement, nil);
+        NSLog(@"%d",sql_status_code);
+        if(sql_status_code == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 int companyNumber = sqlite3_column_int(statement, 0);
 //                NSNumber *companyID = [NSNumber numberWithInt:companyNumber];
@@ -104,6 +105,8 @@
                     }
                 }
             }
+        } else {
+            NSLog(@"error loading from SQL database");
         }
     }
 }
@@ -145,23 +148,23 @@
     [company.products addObject:newProduct];
 }
 
--(void)deleteCompany: (NSNumber*) companyId {
+-(void)deleteCompany: (int) companyId {
     
     char * error;
-    NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM Company WHERE id = '%@'", companyId];
+    NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM Company WHERE id = '%d'", companyId];
     if(sqlite3_exec(sqlDB, [deleteQuery UTF8String], NULL, NULL, &error) == SQLITE_OK){
-        NSLog(@"company with id:%@ deleted from database", companyId);
+        NSLog(@"company with id:%d deleted from database", companyId);
     } else {
         NSLog(@"error deleting company");
     }
 }
 
--(void)deleteProduct: (NSNumber *) productID{
+-(void)deleteProduct: (int) productID{
     
     char * error;
-    NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM product WHERE id = '%@'", productID];
+    NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM product WHERE id = '%d'", productID];
     if(sqlite3_exec(sqlDB, [deleteQuery UTF8String], NULL, NULL, &error) == SQLITE_OK){
-        NSLog(@"product with id:%@ deleted from database", productID);
+        NSLog(@"product with id:%d deleted from database", productID);
     } else {
         NSLog(@"error deleting product");
     }
@@ -189,7 +192,17 @@
     }
 }
 
+-(void)rearrangeCompanyFrom:(int) fromIndex to:(int) toIndex {
+    
+    char * error;
+    NSString *replaceQuery = [NSString stringWithFormat:@"UPDATE Company SET id = '%d' Where id = '%d'", toIndex, fromIndex];
+    if (sqlite3_exec(sqlDB, [replaceQuery UTF8String], NULL, NULL, &error)) {
+        NSLog(@"Company moved");
+    } else {
+        NSLog(@"error moving company in database");
+    }
 
+}
 
 
 

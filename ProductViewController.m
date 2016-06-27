@@ -54,6 +54,9 @@
 
 - (void)addButtonAction {
     DAO *dataManager = [DAO dataManager];
+    
+    //setting the company to add a product to
+    
     dataManager.companyToAppend = self.company;
     self.productAddEditVC = [[ProductAddEditViewController alloc]init];
     self.productAddEditVC.editMode = NO;
@@ -102,7 +105,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.products removeObjectAtIndex:indexPath.row];
+        DAO *dataManager = [DAO dataManager];
+        Product *product = [self.products objectAtIndex:indexPath.row];
+        [dataManager.sqlManager deleteProduct:product.productId];
+        [self.products removeObjectAtIndex:indexPath.row]; //NECESSARY LINE OF CODE?
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
     

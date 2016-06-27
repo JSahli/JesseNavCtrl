@@ -10,6 +10,7 @@
 #import "DAO.h"
 #import "Company.h"
 #import "AddEditViewController.h"
+#import "DBManager.h"
 
 @class ProductViewController;
 
