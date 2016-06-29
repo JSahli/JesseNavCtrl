@@ -17,11 +17,11 @@
     
     self = [super init];
     if (self) {
-        self.companyName = company;
-        self.companyImage = [UIImage imageNamed:imageName];
-        self.companyImageString = imageName;
-        self.products = productArray;
-        self.stockSymbol = symbol;
+        _companyName = [company retain];
+        _companyImage = [[UIImage imageNamed:imageName] retain];
+        _companyImageString = [imageName retain];
+        _products = [productArray retain];
+        _stockSymbol = [symbol retain];
     }
     return self;
 }
@@ -32,11 +32,11 @@
 {
     self = [super init];
     if (self) {
-        self.companyName = company;
-        self.companyImageString = imageName;
-        self.companyImage = [UIImage imageNamed:imageName];
-        self.stockSymbol = symbol;
-        self.products = [[NSMutableArray alloc] init];
+        _companyName = [company retain];
+        _companyImageString = [imageName retain];
+        _companyImage = [[UIImage imageNamed:imageName] retain];
+        _stockSymbol = [symbol retain];
+        _products = [[[NSMutableArray alloc] init] retain];
     }
     return self;
 }
@@ -47,7 +47,7 @@
     if (self.products != nil){
         [self.products addObject:newProduct];
     } else {
-        self.products = [[NSMutableArray alloc]initWithObjects:newProduct, nil];
+        _products = [[[NSMutableArray alloc]initWithObjects:newProduct, nil] retain];
     }
     
 }
@@ -59,16 +59,26 @@
                 id: (int)companyID {
     
     if (self) {
-        self.companyName = company;
-        self.companyImageString = imageName;
-        self.companyImage = [UIImage imageNamed:imageName];
-        self.stockSymbol = symbol;
-        self.companyId = companyID;
-        self.products = [[NSMutableArray alloc] init];
+        _companyName = [company retain];
+        _companyImageString = [imageName retain];
+        _companyImage = [[UIImage imageNamed:imageName] retain];
+        _stockSymbol = [symbol retain];
+        _companyId = companyID;
+        _products = [[[NSMutableArray alloc] init] retain];
 
     }
     return self;
     
+}
+
+-(void)dealloc{
+    
+    [_companyName release];
+    [_companyImageString release];
+    [_companyImage release];
+    [_stockSymbol release];
+    [_products release];
+    [super dealloc];
 }
 
 @end

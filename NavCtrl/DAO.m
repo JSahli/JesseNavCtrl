@@ -27,9 +27,9 @@ static DAO *dataManager = nil;
     
 if (self = [super init]) {
     
-    self.sqlManager = [[DBManager alloc]initWithDatabaseFilename:@"NavDatabase.db"];
+    _sqlManager = [[[DBManager alloc]initWithDatabaseFilename:@"NavDatabase.db"] retain];
     [self.sqlManager pullDataFromSQL];
-    self.companyArray = self.sqlManager.resultsArray;
+    _companyArray = [self.sqlManager.resultsArray retain];
     
     
     
@@ -70,6 +70,15 @@ return self;
     
 }
 
-
+- (void)dealloc
+{
+    [_sqlManager release];
+    [_companyArray release];
+    [_companyToEdit release];
+    [_productToEdit release];
+    [_companyToAppend release];
+    [_stockDictionary release];
+    [super dealloc];
+}
 
 @end

@@ -16,11 +16,11 @@
     
     self = [super init];
     if (self) {
-        self.productName = name;
-        self.productURL = [NSURL URLWithString:url];
-        self.productURLString = url;
-        self.productImageString = imageName;
-        self.productImage = [UIImage imageNamed:imageName];
+        _productName = [name retain];
+        _productURL = [[NSURL URLWithString:url] retain];
+        _productURLString = [url retain];
+        _productImageString = [imageName retain];
+        _productImage = [[UIImage imageNamed:imageName] retain];
     }
     return self;
 }
@@ -35,15 +35,28 @@
     
     self = [super init];
     if (self) {
-        self.productName = name;
-        self.productURL = [NSURL URLWithString:url];
-        self.productURLString = url;
-        self.productImageString = imageName;
-        self.productImage = [UIImage imageNamed:imageName];
-        self.productId = productID;
-        self.companyId = companyID;
+        _productName = [name retain];
+        _productURL = [[NSURL URLWithString:url] retain];
+        _productURLString = [url retain];
+        _productImageString = [imageName retain];
+        _productImage = [[UIImage imageNamed:imageName] retain];
+        _productId = productID;
+        _companyId = companyID;
     }
     return self;
-
 }
+
+-(void)dealloc {
+    
+    [_productName release];
+    [_productURL release];
+    [_productImage release];
+    [_productURLString release];
+    [_productImageString release];
+    
+    [super dealloc];
+}
+
+
+
 @end

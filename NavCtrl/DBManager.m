@@ -28,9 +28,9 @@
     self = [super init];
     if (self) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        self.documentsDirectory = [paths objectAtIndex:0];
+        [_documentsDirectory = [paths objectAtIndex:0] retain];
         
-        self.databaseFilename = dbFilename;
+        [_databaseFilename = dbFilename retain];;
         [self copyDatabaseIntoDocumentsDirectory];
         
     }
@@ -205,7 +205,13 @@
 }
 
 
-
+- (void)dealloc{
+    
+    [_resultsArray release];
+    [_databaseFilename release];
+    [_documentsDirectory release];
+    [super dealloc];
+}
 
 
 
