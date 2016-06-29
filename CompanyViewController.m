@@ -83,6 +83,9 @@
         
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSArray *stockArray = [dataString componentsSeparatedByString:@"\n"];
+        
+        [dataString release];
+        
         dataManager.stockDictionary = [[NSMutableDictionary alloc]init];
         
         for (NSString *x in stockArray) {
@@ -96,8 +99,9 @@
             [dataManager.stockDictionary setObject:stockValues[1] forKey:stockValues[0]];
         }
         
+//        [stockArray release]; WILL CRASH IF I RELEASE HERE
         NSLog(@"%@", dataManager.stockDictionary);
-        
+    
         //assigning the stock prices to all companies usinf fast enumeration
         for(Company *company in dataManager.companyArray){
             company.stockPrice = [dataManager.stockDictionary objectForKey:company.stockSymbol];
@@ -112,6 +116,9 @@
     }]
      resume];
 
+    [session release];
+    [request release];
+    [dataManager.stockDictionary release];
     
 }
 

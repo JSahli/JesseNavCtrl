@@ -90,19 +90,35 @@
                     while (sqlite3_step(statementProduct) == SQLITE_ROW) {
                         int productNumber = sqlite3_column_int(statementProduct, 4);
 //                        NSNumber *productID = [NSNumber numberWithInt:productNumber];
+                        
                         NSString *productName =
                         [NSString stringWithUTF8String: (char*)sqlite3_column_text(statementProduct, 1) ];
+                             
+                        
                         NSString *productURL =
                         [NSString stringWithUTF8String: (char*)sqlite3_column_text(statementProduct, 2) ];
                         NSString *productImage =
                         [NSString stringWithUTF8String: (char*)sqlite3_column_text(statementProduct, 3) ];
                         Product *product = [[Product alloc]initWithName:productName URL:productURL ImageString:productImage id:productNumber cmpnyId:companyNumber];
+                        
+
 //                        [productName release];
 //                        [productURL release];
+                        NSLog(@"RETAIN COUNT IS %lu", (unsigned long)[product retainCount]);
+
 //                        [productImage release];
                         [company.products addObject:product];
+                         NSLog(@"RETAIN COUNT IS %lu", (unsigned long)[product retainCount]);
+//                        [product release]; WILL CRASH IF I RELEASE HERE
+                        [product release];
+                        NSLog(@"RETAIN COUNT IS %lu", (unsigned long)[product retainCount]);
 //                        [product release];
-                    }
+                       
+                        // [productName release];
+                       // [productURL release];
+                       // [productImage release];
+                                            }
+                    [company release];
                 }
             }
         } else {

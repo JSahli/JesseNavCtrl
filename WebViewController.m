@@ -23,6 +23,10 @@
     [webView loadRequest:urlRequest];
     [self.view addSubview:webView];
     
+    [theConfiguration release];
+    [webView release];
+    [urlRequest release];
+    
     UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editProduct)];
     self.navigationItem.rightBarButtonItem = editBarButton;
 

@@ -36,7 +36,7 @@
         _companyImageString = [imageName retain];
         _companyImage = [[UIImage imageNamed:imageName] retain];
         _stockSymbol = [symbol retain];
-        _products = [[[NSMutableArray alloc] init] retain];
+        _products = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -47,7 +47,7 @@
     if (self.products != nil){
         [self.products addObject:newProduct];
     } else {
-        _products = [[[NSMutableArray alloc]initWithObjects:newProduct, nil] retain];
+        _products = [[NSMutableArray alloc]initWithObjects:newProduct, nil];
     }
     
 }
@@ -64,7 +64,7 @@
         _companyImage = [[UIImage imageNamed:imageName] retain];
         _stockSymbol = [symbol retain];
         _companyId = companyID;
-        _products = [[[NSMutableArray alloc] init] retain];
+        _products = [[NSMutableArray alloc] init];
 
     }
     return self;
