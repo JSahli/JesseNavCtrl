@@ -39,6 +39,8 @@
     self.tableView.allowsSelectionDuringEditing = YES;
    
     DAO *dataManager = [DAO dataManager];
+    NSLog(@"%@", dataManager.companyArray);
+    NSLog(@"%@",dataManager.managedCompanyArray);
     self.companyList = dataManager.companyArray;
     self.title = @"Companies";
     [self.tableView reloadData];
@@ -178,12 +180,15 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DAO *dataManager = [DAO dataManager];
-        Company *company = [self.companyList objectAtIndex:indexPath.row];
         
+//        DAO *dataManager = [DAO dataManager];
+//        Company *company = [self.companyList objectAtIndex:indexPath.row];
         //REMOVING THE DATA FROM SQL MANAGER FOR PERSISTANCE
-        [dataManager.sqlManager deleteCompany:company.companyId];
-        [self.companyList removeObjectAtIndex:indexPath.row];
+//        [dataManager.sqlManager deleteCompany:company.companyId];
+        
+        [[DAO dataManager] deleteCompany:[self.companyList objectAtIndex:indexPath.row]];
+//        [self.companyList removeObjectAtIndex:indexPath.row];
+        
         [tableView reloadData]; // tell table to refresh now
     }
     

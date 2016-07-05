@@ -57,7 +57,9 @@
         dataManager.companyToEdit.companyImageString = self.imageTextField.text;
         dataManager.companyToEdit.stockSymbol = self.stockSymbolTextField.text;
         dataManager.companyToEdit.companyImage = [UIImage imageNamed:self.imageTextField.text];
-        [dataManager.sqlManager editCompany:dataManager.companyToEdit];
+        
+        //FOR UPDATING SQL DATABASE
+//        [dataManager.sqlManager editCompany:dataManager.companyToEdit];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

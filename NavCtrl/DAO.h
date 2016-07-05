@@ -10,17 +10,28 @@
 #import "Company.h"
 #import "Product.h"
 #import "DBManager.h"
-
+#import <CoreData/CoreData.h>
+#import "ManagedCompany.h"
+#import "ManagedProduct.h"
 
 @interface DAO : NSObject
 
 @property(nonatomic, retain) NSMutableArray<Company*> *companyArray;
+@property(nonatomic, retain) NSMutableArray<ManagedCompany*> *managedCompanyArray;
 @property(nonatomic, retain) NSMutableDictionary *stockDictionary;
 @property(nonatomic, retain) Company *companyToEdit;
 @property(nonatomic, retain) Company *companyToAppend;
 @property(nonatomic, retain) Product *productToEdit;
-@property(nonatomic, retain) DBManager *sqlManager;
+//@property(nonatomic, retain) DBManager *sqlManager;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+
+-(void)deleteCompany: (Company*) companyToDelete;
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 + (id) dataManager;
 -(void)addCompanyWithName: (NSString*) name
                 imagePath: (NSString*) imageString

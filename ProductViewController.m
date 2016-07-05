@@ -105,9 +105,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DAO *dataManager = [DAO dataManager];
-        Product *product = [self.products objectAtIndex:indexPath.row];
-        [dataManager.sqlManager deleteProduct:product.productId];
+//        DAO *dataManager = [DAO dataManager];
+//        Product *product = [self.products objectAtIndex:indexPath.row];
+//        FOR UPDATING SQL DATABASE
+//        [dataManager.sqlManager deleteProduct:product.productId];
         [self.products removeObjectAtIndex:indexPath.row]; //NECESSARY LINE OF CODE?
 
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
