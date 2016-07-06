@@ -28,14 +28,32 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-
+-(void)deleteProduct: (Product*) productToDelete inCompany: (Company*) company;
 -(void)deleteCompany: (Company*) companyToDelete;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 + (id) dataManager;
+
 -(void)addCompanyWithName: (NSString*) name
                 imagePath: (NSString*) imageString
               stockSymbol: (NSString*) symbol;
+
+-(void)addProductWithName: (NSString*) name
+                    image: (NSString*) imageString
+                      URL: (NSString*) urlString
+                toCompany: (Company*) company;
+
+-(void)editCompany: (Company*) companyToEdit
+           newName: (NSString*) name
+          newImage: (NSString*) imageString
+         newSymbol: (NSString*) stockSymbol;
+
+-(void)editProduct: (Product*) productToEdit
+         inCompany: (Company*) company
+           newName: (NSString*) name
+          newImage: (NSString*) imageString
+            newURL: (NSString*) urlString;
+
 
 
 

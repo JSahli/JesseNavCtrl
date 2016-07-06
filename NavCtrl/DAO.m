@@ -236,6 +236,64 @@ return self;
 //    [self.sqlManager addCompanyWithName:name stockSymbol:symbol imageString:imageString];
 }
 
+-(void)addProductWithName: (NSString*) name
+                    image: (NSString*) imageString
+                      URL: (NSString*) urlString
+                toCompany: (Company*) company {
+    
+    Product *newProduct = [[Product alloc] initWithName:name URL:urlString ImageString:imageString];
+    [company.products addObject:newProduct];
+    ManagedProduct *newManagedProduct = [NSEntityDescription insertNewObjectForEntityForName:@"ManagedProduct" inManagedObjectContext:self.managedObjectContext];
+    [newManagedProduct setProductName:name];
+    [newManagedProduct setProductURLString:urlString];
+    [newManagedProduct setProductImageString:imageString];
+    
+     NSInteger index = [self.companyArray indexOfObject:company];
+    ManagedCompany *mC = [self.managedCompanyArray objectAtIndex:index];
+    [mC addProductsObject:newManagedProduct];
+//    [newManagedProduct setCompany:mC]; can do either or because inverse
+    [self saveContext];
+}
+
+-(void)editCompany: (Company*) companyToEdit
+           newName: (NSString*) name
+          newImage: (NSString*) imageString
+         newSymbol: (NSString*) stockSymbol {
+    
+    companyToEdit.companyName = name;
+    companyToEdit.companyImageString = imageString;
+    companyToEdit.stockSymbol = stockSymbol;
+    NSInteger index = [self.companyArray indexOfObject:companyToEdit];
+    ManagedCompany *mC = [self.managedCompanyArray objectAtIndex:index];
+    mC.companyName = name;
+    mC.companyImageString = imageString;
+    mC.stockSymbol = stockSymbol;
+    [self saveContext];
+}
+
+-(void)editProduct: (Product*) productToEdit
+         inCompany: (Company*) company
+           newName: (NSString*) name
+          newImage: (NSString*) imageString
+            newURL: (NSString*) urlString {
+    
+    NSString* originalName = productToEdit.productName;
+    productToEdit.productName = name;
+    productToEdit.productImageString = imageString;
+    productToEdit.productURLString = urlString;
+    NSInteger index = [self.companyArray indexOfObject:company];
+    ManagedCompany *mC = [self.managedCompanyArray objectAtIndex:index];
+    NSArray *productArray = [mC.products allObjects];
+    for (ManagedProduct *mP in productArray) {
+        if([mP.productName isEqualToString:originalName]){
+            mP.productName = name;
+            mP.productURLString = urlString;
+            mP.productImageString = imageString;
+        }
+    }
+    [self saveContext];
+}
+
 -(void)deleteCompany: (Company*) companyToDelete {
     NSInteger index = [self.companyArray indexOfObject:companyToDelete];
     
@@ -243,6 +301,38 @@ return self;
     [self.managedCompanyArray removeObjectAtIndex:index];
     [self.companyArray removeObject:companyToDelete];
     [self saveContext];
+}
+
+
+
+-(void)deleteProduct: (Product*) productToDelete inCompany: (Company*) company {
+   
+    NSInteger cmpnyIndex = [self.companyArray indexOfObject:company];
+    ManagedCompany *mC = [self.managedCompanyArray objectAtIndex:cmpnyIndex];
+    NSArray *productArray = [mC.products allObjects];
+    for (ManagedProduct *mP in productArray) {
+        if([mP.productName isEqualToString:productToDelete.productName]){
+            [self.managedObjectContext deleteObject:mP];
+            [company.products removeObject:productToDelete];
+            // delete from managed company? try it
+            [self saveContext];
+        }
+    }
+//    
+//    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productName == '%@'", productToDelete.productName];
+//    [request setPredicate:predicate];
+//    NSEntityDescription *managedProductEntity = [[self.managedObjectModel entitiesByName] objectForKey:@"ManagedProduct"];
+//    [request setEntity:managedProductEntity];
+//    NSError *error = nil;
+//    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+//    ManagedProduct *managedProductToDelete = result[0];
+//    if (!result) {
+//        NSLog(@"Error: %@", error.localizedDescription);
+//    }
+//    [self.managedObjectContext deleteObject:managedProductToDelete];
+//    [self saveContext];
+    
 }
 
 - (void)dealloc

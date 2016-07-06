@@ -106,11 +106,14 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 //        DAO *dataManager = [DAO dataManager];
-//        Product *product = [self.products objectAtIndex:indexPath.row];
+        
 //        FOR UPDATING SQL DATABASE
 //        [dataManager.sqlManager deleteProduct:product.productId];
-        [self.products removeObjectAtIndex:indexPath.row]; //NECESSARY LINE OF CODE?
-
+        
+        Product *product = [self.products objectAtIndex:indexPath.row];
+        [[DAO dataManager]deleteProduct:product inCompany:self.company];
+        
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
     
@@ -136,6 +139,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DAO *dataManager = [DAO dataManager];
+    dataManager.companyToAppend = self.company;
     dataManager.productToEdit = self.products[[indexPath row]];
     self.webViewController = [[WebViewController alloc]init];
     self.webViewController.product = self.products[[indexPath row]];

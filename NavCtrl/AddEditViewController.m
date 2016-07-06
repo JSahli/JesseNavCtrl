@@ -53,9 +53,12 @@
     }
     
     if (self.editMode) {
-        dataManager.companyToEdit.companyName = self.companyTextField.text;
-        dataManager.companyToEdit.companyImageString = self.imageTextField.text;
-        dataManager.companyToEdit.stockSymbol = self.stockSymbolTextField.text;
+        
+        [dataManager editCompany:dataManager.companyToEdit newName:self.companyTextField.text newImage:self.imageTextField.text newSymbol:self.stockSymbolTextField.text];
+        
+//        dataManager.companyToEdit.companyName = self.companyTextField.text;
+//        dataManager.companyToEdit.companyImageString = self.imageTextField.text;
+//        dataManager.companyToEdit.stockSymbol = self.stockSymbolTextField.text;
         dataManager.companyToEdit.companyImage = [UIImage imageNamed:self.imageTextField.text];
         
         //FOR UPDATING SQL DATABASE

@@ -41,17 +41,21 @@
     
     if (!self.editMode) {
 
-        [dataManager.companyToAppend addProductWithName:self.nameTextField.text urlWithString:self.urlTextField.text imageWithString:self.imageTextField.text];
+//        [dataManager.companyToAppend addProductWithName:self.nameTextField.text urlWithString:self.urlTextField.text imageWithString:self.imageTextField.text];
+        
+        [dataManager addProductWithName:self.nameTextField.text image:self.imageTextField.text URL:self.urlTextField.text toCompany:dataManager.companyToAppend];
       
 //        [dataManager.sqlManager addProductWithName:self.nameTextField.text urlString:self.urlTextField.text imageString:self.imageTextField.text forCompany:dataManager.companyToAppend];
 
     }
     
     if (self.editMode) {
-        dataManager.productToEdit.productName = self.nameTextField.text;
+        [dataManager editProduct:dataManager.productToEdit inCompany:dataManager.companyToAppend newName:self.nameTextField.text newImage:self.imageTextField.text newURL:self.urlTextField.text];
+        
         dataManager.productToEdit.productURL = [NSURL URLWithString:self.urlTextField.text];
-        dataManager.productToEdit.productURLString = self.urlTextField.text;
         dataManager.productToEdit.productImage = [UIImage imageNamed:self.imageTextField.text];
+        
+        //FOR UPDATING SQLITE DATABASE
 //        [dataManager.sqlManager editProduct:dataManager.productToEdit];
     }
 
