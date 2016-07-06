@@ -42,14 +42,14 @@
     NSLog(@"%@", dataManager.companyArray);
     NSLog(@"%@",dataManager.managedCompanyArray);
     self.companyList = dataManager.companyArray;
-    self.title = @"Companies";
+    self.title = @"Stock Tracker";
     [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     DAO *dataManager = [DAO dataManager];
     self.companyList = dataManager.companyArray;
-    self.title = @"Companies";
+//    self.title = @"Stock Tracker";
     [self.tableView reloadData];
     [self loadStockPrices];
 }
@@ -127,8 +127,14 @@
 //add button that pushes to the Add/Edit view controller
 -(void)addButtonAction {
     self.addEditViewController = [[AddEditViewController alloc]init];
-    self.addEditViewController.title = @"Add Company";
+    self.addEditViewController.title = @"New Company";
     self.addEditViewController.editMode = NO;
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
     [self.navigationController pushViewController:self.addEditViewController animated:YES];
 }
 

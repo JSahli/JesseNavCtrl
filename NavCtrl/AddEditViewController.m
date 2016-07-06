@@ -18,9 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     DAO *dataManager = [DAO dataManager];
-    
+
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveCompany)];
     self.navigationItem.rightBarButtonItem = saveBarButton;
+    
+    
     
 //    self.companyTextField.backgroundColor = [UIColor clearColor];
 //    CALayer *border = [CALayer layer];
