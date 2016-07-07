@@ -41,7 +41,6 @@
 		9E94E7691D185F4F006B27E5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E7681D185F4F006B27E5 /* Launch Screen.storyboard */; };
 		9E94E76D1D197C0E006B27E5 /* ProductAddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E94E76B1D197C0E006B27E5 /* ProductAddEditViewController.m */; };
 		9E94E76E1D197C0E006B27E5 /* ProductAddEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E94E76C1D197C0E006B27E5 /* ProductAddEditViewController.xib */; };
-		9EB4DA351D2D959000A686FA /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4DA341D2D959000A686FA /* ProductViewController.xib */; };
 		9EB4DA391D2D98D600A686FA /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4DA371D2D98D600A686FA /* ProductListViewController.m */; };
 		9EB4DA3A1D2D98D600A686FA /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4DA381D2D98D600A686FA /* ProductListViewController.xib */; };
 		9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9EF104CF1D0F054F0064E8BD /* img-companyLogo_Apple.pdf */; };
@@ -151,7 +150,6 @@
 		9E94E76A1D197C0E006B27E5 /* ProductAddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAddEditViewController.h; sourceTree = "<group>"; };
 		9E94E76B1D197C0E006B27E5 /* ProductAddEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAddEditViewController.m; sourceTree = "<group>"; };
 		9E94E76C1D197C0E006B27E5 /* ProductAddEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAddEditViewController.xib; sourceTree = "<group>"; };
-		9EB4DA341D2D959000A686FA /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
 		9EB4DA361D2D98D600A686FA /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		9EB4DA371D2D98D600A686FA /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
 		9EB4DA381D2D98D600A686FA /* ProductListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				48A656E818163F8700746D36 /* ProductViewController.h */,
-				9EB4DA341D2D959000A686FA /* ProductViewController.xib */,
 				48A656E918163F8700746D36 /* ProductViewController.m */,
 				9EB4DA361D2D98D600A686FA /* ProductListViewController.h */,
 				9EB4DA371D2D98D600A686FA /* ProductListViewController.m */,
@@ -603,7 +600,6 @@
 				9EF1050B1D0F054F0064E8BD /* img-companyPhoto-01.png in Resources */,
 				9EF1050C1D0F054F0064E8BD /* img-companyPhoto-01@2x.png in Resources */,
 				9EF105171D0F054F0064E8BD /* btn-navAdd@3x.png in Resources */,
-				9EB4DA351D2D959000A686FA /* ProductViewController.xib in Resources */,
 				9EF105051D0F054F0064E8BD /* img-companyLogo_Tesla@3x.png in Resources */,
 				9EF104FA1D0F054F0064E8BD /* img-companyLogo_Apple.pdf in Resources */,
 				9EF1050D1D0F054F0064E8BD /* img-companyPhoto-01@3x.png in Resources */,

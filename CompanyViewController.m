@@ -52,12 +52,15 @@
 //    self.title = @"Stock Tracker";
     [self.tableView reloadData];
     [self loadStockPrices];
+    UIView *noCompanies = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    noCompanies.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:noCompanies];
 }
 
 -(void)loadStockPrices {
     
     DAO *dataManager = [DAO dataManager];
-    
+
     //URL before dynamically adding desired stock prices
     NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
     
@@ -270,10 +273,10 @@
         return;
     }
 
-    
-    self.productViewController.company = self.companyList[[indexPath row]];
+    self.productListViewController = [[ProductListViewController alloc]init];
+    self.productListViewController.company = self.companyList[[indexPath row]];
     [self.navigationController
-        pushViewController:self.productViewController
+        pushViewController:self.productListViewController
         animated:YES];
 }
  

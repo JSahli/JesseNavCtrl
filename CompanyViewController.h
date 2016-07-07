@@ -11,14 +11,17 @@
 #import "Company.h"
 #import "AddEditViewController.h"
 #import "DBManager.h"
+#import "ProductListViewController.h"
 
-@class ProductViewController;
+//@class ProductListViewController;
 
 @interface CompanyViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 
 @property (nonatomic, retain) NSMutableArray *companyList;
-@property (nonatomic, retain) IBOutlet ProductViewController * productViewController;
+//@property (nonatomic, retain) IBOutlet ProductViewController * productViewController;
+@property (nonatomic, retain) ProductListViewController * productListViewController;
 @property (nonatomic, retain) AddEditViewController *addEditViewController;
+
 
 @end
