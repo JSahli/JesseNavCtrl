@@ -75,6 +75,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)deleteProductButton:(id)sender {
+    DAO *dataManager = [DAO dataManager];
+    [dataManager deleteProduct:dataManager.productToEdit inCompany:dataManager.companyToEdit];
+}
 
 - (void)dealloc {
     [_nameTextField release];
@@ -82,4 +86,5 @@
     [_imageTextField release];
     [super dealloc];
 }
+
 @end

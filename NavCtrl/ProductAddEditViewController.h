@@ -14,5 +14,6 @@
 @property (retain, nonatomic) IBOutlet UITextField *nameTextField;
 @property (retain, nonatomic) IBOutlet UITextField *urlTextField;
 @property (retain, nonatomic) IBOutlet UITextField *imageTextField;
+- (IBAction)deleteProductButton:(id)sender;
 @property (nonatomic) BOOL editMode;
 @end

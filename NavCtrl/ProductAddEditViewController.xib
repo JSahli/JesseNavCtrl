@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -33,6 +32,18 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-Ib-p2R">
+                    <rect key="frame" x="233" y="377" width="133" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="133" id="08U-A0-SX1"/>
+                        <constraint firstAttribute="height" constant="41" id="9wM-1x-YIC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <state key="normal" title="Delete Product"/>
+                    <connections>
+                        <action selector="deleteProductButton:" destination="-1" eventType="touchUpInside" id="LdB-0l-AHm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -45,6 +56,8 @@
                 <constraint firstItem="Sxd-0v-ptl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="jQ5-52-oHz"/>
                 <constraint firstItem="8vk-Pn-HgK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="jmm-uf-kDk"/>
                 <constraint firstItem="Bcz-JL-Qnl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="lPg-3N-gFq"/>
+                <constraint firstItem="gLI-Ib-p2R" firstAttribute="top" secondItem="8vk-Pn-HgK" secondAttribute="bottom" constant="62" id="pmH-p9-mPi"/>
+                <constraint firstItem="gLI-Ib-p2R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w67-V4-1he"/>
             </constraints>
         </view>
     </objects>

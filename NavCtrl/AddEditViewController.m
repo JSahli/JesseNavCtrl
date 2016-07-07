@@ -90,4 +90,8 @@
     [_stockSymbolTextField release];
     [super dealloc];
 }
+- (IBAction)deleteCompanyAction:(id)sender {
+    DAO *dataManager = [DAO dataManager];
+    [dataManager deleteCompany:dataManager.companyToEdit];
+}
 @end

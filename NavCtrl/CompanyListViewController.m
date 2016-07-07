@@ -1,46 +1,57 @@
 //
-//  CompanyViewController.m
+//  CompanyListViewController.m
 //  NavCtrl
 //
-//  Created by Aditya Narayan on 10/22/13.
-//  Copyright (c) 2013 Aditya Narayan. All rights reserved.
+//  Created by Jesse Sahli on 7/7/16.
+//  Copyright © 2016 Aditya Narayan. All rights reserved.
 //
 
-#import "CompanyViewController.h"
-#import "ProductViewController.h"
+#import "CompanyListViewController.h"
 
-@interface CompanyViewController ()
+@interface CompanyListViewController ()
 
 @end
 
-@implementation CompanyViewController
+//SET AS ROOT VIEW CONTROLLER
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
+@implementation CompanyListViewController
+
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    // Do any additional setup after loading the view from its nib.
+//}
+//
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
+//- (id)initWithStyle:(UITableViewStyle)style
+//{
+//    self = [super initWithStyle:style];
+//    
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
-     self.clearsSelectionOnViewWillAppear = NO;
- 
+//    self.clearsSelectionOnViewWillAppear = NO;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-   
     UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonAction)];
     self.navigationItem.leftBarButtonItem = editBarButton;
+
     UIBarButtonItem *addBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn-navAdd.png"] style:UIBarButtonItemStylePlain target:self action:@selector(addButtonAction)];
     self.navigationItem.rightBarButtonItem = addBarButton;
     self.tableView.allowsSelectionDuringEditing = YES;
-   
+    
     DAO *dataManager = [DAO dataManager];
     NSLog(@"%@", dataManager.companyArray);
     NSLog(@"%@",dataManager.managedCompanyArray);
@@ -50,22 +61,31 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+//    self.tableView.frame = [[UIScreen mainScreen]bounds];
     DAO *dataManager = [DAO dataManager];
     self.companyList = dataManager.companyArray;
-//    self.title = @"Stock Tracker";
+    //    self.title = @"Stock Tracker";
     [self.tableView reloadData];
     [self loadStockPrices];
-    //DOESNT WORK, TABLE VIEW ROWS STILL APPEAR
-//    UIView *noCompanies = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-//    noCompanies.backgroundColor = [UIColor blackColor];
-//    [self.view addSubview:noCompanies];
+ 
+    if(self.companyList.count < 1){
+        [self.tableView setHidden:YES];
+        [self.emptyImage setHidden:NO];
+        [self.emptyLabel setHidden:NO];
+        [self.addButtonOutlet setHidden:NO];
+    } else {
+        [self.tableView setHidden:NO];
+        [self.emptyImage setHidden:YES];
+        [self.emptyLabel setHidden:YES];
+        [self.addButtonOutlet setHidden:YES];
+    }
     
 }
 
 -(void)loadStockPrices {
     
     DAO *dataManager = [DAO dataManager];
-
+    
     //URL before dynamically adding desired stock prices
     NSString* urlShell = @"http://finance.yahoo.com/d/quotes.csv?s=";
     
@@ -109,9 +129,9 @@
             [dataManager.stockDictionary setObject:stockValues[1] forKey:stockValues[0]];
         }
         
-//        [stockArray release]; WILL CRASH IF I RELEASE HERE
+        //        [stockArray release]; WILL CRASH IF I RELEASE HERE
         NSLog(@"%@", dataManager.stockDictionary);
-    
+        
         //assigning the stock prices to all companies usinf fast enumeration
         for(Company *company in dataManager.companyArray){
             company.stockPrice = [dataManager.stockDictionary objectForKey:company.stockSymbol];
@@ -125,7 +145,7 @@
         
     }]
      resume];
-
+    
     [session release];
     [request release];
     [dataManager.stockDictionary release];
@@ -147,7 +167,16 @@
 }
 
 -(void)editButtonAction {
-   [self.tableView setEditing:YES animated:YES];
+    [self.tableView setEditing:YES animated:YES];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonAction)];
+    
+    self.navigationItem.leftBarButtonItem = doneBarButton;
+}
+
+-(void)doneButtonAction {
+    [self.tableView setEditing:NO animated:YES];
+    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonAction)];
+    self.navigationItem.leftBarButtonItem = editBarButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,14 +189,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     // Return the number of rows in the section.
     return [self.companyList count];
 }
@@ -199,55 +228,67 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-//        DAO *dataManager = [DAO dataManager];
-//        Company *company = [self.companyList objectAtIndex:indexPath.row];
+        //        DAO *dataManager = [DAO dataManager];
+        //        Company *company = [self.companyList objectAtIndex:indexPath.row];
         //REMOVING THE DATA FROM SQL MANAGER FOR PERSISTANCE
-//        [dataManager.sqlManager deleteCompany:company.companyId];
+        //        [dataManager.sqlManager deleteCompany:company.companyId];
         
         [[DAO dataManager] deleteCompany:[self.companyList objectAtIndex:indexPath.row]];
-//        [self.companyList removeObjectAtIndex:indexPath.row];
+        //        [self.companyList removeObjectAtIndex:indexPath.row];
         
         [tableView reloadData]; // tell table to refresh now
+        if(self.companyList.count < 1){
+            [self.tableView setHidden:YES];
+            [self.emptyImage setHidden:NO];
+            [self.emptyLabel setHidden:NO];
+            [self.addButtonOutlet setHidden:NO];
+        } else {
+            [self.tableView setHidden:NO];
+            [self.emptyImage setHidden:YES];
+            [self.emptyLabel setHidden:YES];
+            [self.addButtonOutlet setHidden:YES];
+        }
+
     }
     
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-
+    
     //CODE FOR REARRANGING TABLE BASED ON ARRAY POSITION
     Company *company = [self.companyList objectAtIndex:fromIndexPath.row];
     [self.companyList removeObjectAtIndex:fromIndexPath.row];
     [self.companyList insertObject:company atIndex:toIndexPath.row];
     
-//    DAO *dataManager = [DAO dataManager];
-//    [dataManager.sqlManager rearrangeCompanyFrom:(int)(fromIndexPath.row + 1) to:(int)(toIndexPath.row + 1)]; DOESNT WORK AS INTENDED
+    //    DAO *dataManager = [DAO dataManager];
+    //    [dataManager.sqlManager rearrangeCompanyFrom:(int)(fromIndexPath.row + 1) to:(int)(toIndexPath.row + 1)]; DOESNT WORK AS INTENDED
     [tableView reloadData];
 }
 
@@ -267,13 +308,13 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     DAO *dataManager = [DAO dataManager];
+    DAO *dataManager = [DAO dataManager];
     
     if (tableView.editing == YES) {
         Company *company = self.companyList[[indexPath row]];
         self.addEditViewController = [[AddEditViewController alloc]init];
         self.addEditViewController.title = @"Edit Company";
-       
+        
         //Setting a specific company and edit mode switch for the add/edit view controller to use
         dataManager.companyToEdit = company;
         self.addEditViewController.editMode = YES;
@@ -281,14 +322,67 @@
         [self.navigationController pushViewController:self.addEditViewController animated:YES];
         return;
     }
-
+    
     self.productListViewController = [[ProductListViewController alloc]init];
     self.productListViewController.company = self.companyList[[indexPath row]];
     [self.navigationController
-        pushViewController:self.productListViewController
-        animated:YES];
+     pushViewController:self.productListViewController
+     animated:YES];
 }
- 
 
+
+
+
+
+- (IBAction)emptyAddButtonAction:(id)sender {
+    self.addEditViewController = [[AddEditViewController alloc]init];
+    self.addEditViewController.title = @"New Company";
+    self.addEditViewController.editMode = NO;
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    [self.navigationController pushViewController:self.addEditViewController animated:YES];
+
+}
+
+- (IBAction)redoButtonAction:(id)sender {
+    DAO *dataManager = [DAO dataManager];
+    [dataManager.managedObjectContext redo];
+}
+
+- (IBAction)undoButtonAction:(id)sender {
+    DAO *dataManager = [DAO dataManager];
+    [dataManager.managedObjectContext undo];
+}
+
+
+
+
+
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (void)dealloc {
+    [_emptyImage release];
+    [_emptyLabel release];
+    [_addButtonOutlet release];
+    [_tableView release];
+    [_redoButtonOutlet release];
+    [_undoButtonOutlet release];
+    [super dealloc];
+}
 
 @end

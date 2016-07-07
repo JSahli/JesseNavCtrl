@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -33,6 +32,18 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrY-gN-O5f">
+                    <rect key="frame" x="230" y="353" width="151" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="151" id="9k1-lS-2bZ"/>
+                        <constraint firstAttribute="height" constant="38" id="HI6-e1-Xhf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <state key="normal" title="Delete Company"/>
+                    <connections>
+                        <action selector="deleteCompanyAction:" destination="-1" eventType="touchUpInside" id="9sM-UP-ssa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
@@ -41,8 +52,10 @@
                 <constraint firstItem="BeK-RH-LFE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="N0U-Tq-zGz"/>
                 <constraint firstItem="VE7-fj-1dR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NOJ-XM-f2y"/>
                 <constraint firstItem="VE7-fj-1dR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="O4s-4y-uk3"/>
+                <constraint firstItem="KrY-gN-O5f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="5.5" id="RfX-9v-wBn"/>
                 <constraint firstItem="BeK-RH-LFE" firstAttribute="top" secondItem="zgp-8r-qg8" secondAttribute="bottom" constant="27" id="baW-RW-9my"/>
                 <constraint firstItem="zgp-8r-qg8" firstAttribute="top" secondItem="VE7-fj-1dR" secondAttribute="bottom" constant="26" id="bnz-C5-pIk"/>
+                <constraint firstItem="KrY-gN-O5f" firstAttribute="top" secondItem="BeK-RH-LFE" secondAttribute="bottom" constant="38" id="fJo-oa-4ng"/>
                 <constraint firstItem="BeK-RH-LFE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fJq-SH-j8k"/>
                 <constraint firstItem="zgp-8r-qg8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iBh-4I-Ni5"/>
                 <constraint firstItem="zgp-8r-qg8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="kHU-lT-9gJ"/>
