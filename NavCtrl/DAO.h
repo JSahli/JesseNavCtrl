@@ -53,6 +53,7 @@
            newName: (NSString*) name
           newImage: (NSString*) imageString
             newURL: (NSString*) urlString;
+-(void) loadData;
 
 
 

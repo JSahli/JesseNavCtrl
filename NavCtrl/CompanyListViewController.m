@@ -351,11 +351,16 @@
 - (IBAction)redoButtonAction:(id)sender {
     DAO *dataManager = [DAO dataManager];
     [dataManager.managedObjectContext redo];
+    [dataManager loadData];
+    [self.tableView reloadData];
 }
 
 - (IBAction)undoButtonAction:(id)sender {
     DAO *dataManager = [DAO dataManager];
     [dataManager.managedObjectContext undo];
+    [dataManager loadData];
+    [self.tableView reloadData];
+    NSLog(@"CODE");
 }
 
 

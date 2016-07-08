@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductAddEditViewController">
             <connections>
+                <outlet property="deleteProductOutlet" destination="gLI-Ib-p2R" id="TIF-eO-P6t"/>
                 <outlet property="imageTextField" destination="8vk-Pn-HgK" id="fsk-NR-DnQ"/>
                 <outlet property="nameTextField" destination="Bcz-JL-Qnl" id="wCR-uG-DHg"/>
                 <outlet property="urlTextField" destination="Sxd-0v-ptl" id="i7r-XA-Hvl"/>

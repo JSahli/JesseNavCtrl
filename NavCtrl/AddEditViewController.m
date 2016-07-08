@@ -37,9 +37,12 @@
         self.companyTextField.text = dataManager.companyToEdit.companyName;
         self.imageTextField.text = dataManager.companyToEdit.companyImageString;
         self.stockSymbolTextField.text = dataManager.companyToEdit.stockSymbol;
+        
     }
     
     if (!self.editMode){
+        self.title = @"New Company";
+        [self.deleteButton setHidden:YES];
         self.imageTextField.text = @"Sunflower.gif";
     }
     
@@ -88,6 +91,7 @@
     [_companyTextField release];
     [_imageTextField release];
     [_stockSymbolTextField release];
+    [_deleteButton release];
     [super dealloc];
 }
 - (IBAction)deleteCompanyAction:(id)sender {

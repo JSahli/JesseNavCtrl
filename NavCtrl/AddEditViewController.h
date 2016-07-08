@@ -15,6 +15,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *imageTextField;
 @property (retain, nonatomic) IBOutlet UITextField *stockSymbolTextField;
 - (IBAction)deleteCompanyAction:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (nonatomic) BOOL editMode;
 

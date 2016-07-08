@@ -76,6 +76,10 @@ static DAO *dataManager = nil;
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    
+    //Add an undo manager
+    _managedObjectContext.undoManager = [[NSUndoManager alloc] init];
+
     return _managedObjectContext;
 }
 
@@ -208,7 +212,14 @@ return self;
         self.managedCompanyArray = [[NSMutableArray alloc]initWithArray:result];
         NSLog(@"Company count = %lu", (unsigned long)self.managedCompanyArray.count);
 //    }
-    self.companyArray = [[NSMutableArray alloc]init];
+    
+
+    
+    if(!self.companyArray)
+        self.companyArray = [[NSMutableArray alloc]init];
+    else
+        [self.companyArray removeAllObjects];
+    
     for (ManagedCompany *mC in self.managedCompanyArray) {
         Company *company = [[Company alloc]initWithName:mC.companyName imageName:mC.companyImageString stockSymbol:mC.stockSymbol];
         for(ManagedProduct *mP in mC.products){
@@ -231,7 +242,7 @@ return self;
     [newManagedCompany setStockSymbol:symbol];
     [self.managedCompanyArray addObject:newManagedCompany];
     
-    [self saveContext];
+//    [self saveContext];
 
 //    [self.sqlManager addCompanyWithName:name stockSymbol:symbol imageString:imageString];
 }
@@ -252,7 +263,7 @@ return self;
     ManagedCompany *mC = [self.managedCompanyArray objectAtIndex:index];
     [mC addProductsObject:newManagedProduct];
 //    [newManagedProduct setCompany:mC]; can do either or because inverse
-    [self saveContext];
+//    [self saveContext];
 }
 
 -(void)editCompany: (Company*) companyToEdit
@@ -268,7 +279,7 @@ return self;
     mC.companyName = name;
     mC.companyImageString = imageString;
     mC.stockSymbol = stockSymbol;
-    [self saveContext];
+//    [self saveContext];
 }
 
 -(void)editProduct: (Product*) productToEdit
@@ -291,7 +302,7 @@ return self;
             mP.productImageString = imageString;
         }
     }
-    [self saveContext];
+//    [self saveContext];
 }
 
 -(void)deleteCompany: (Company*) companyToDelete {
@@ -300,7 +311,7 @@ return self;
     [self.managedObjectContext deleteObject:[self.managedCompanyArray objectAtIndex:index]];
     [self.managedCompanyArray removeObjectAtIndex:index];
     [self.companyArray removeObject:companyToDelete];
-    [self saveContext];
+//    [self saveContext];
 }
 
 
@@ -315,7 +326,7 @@ return self;
             [self.managedObjectContext deleteObject:mP];
             [company.products removeObject:productToDelete];
             // delete from managed company? try it
-            [self saveContext];
+//            [self saveContext];
         }
     }
 //    

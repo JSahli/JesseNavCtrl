@@ -24,9 +24,12 @@
         self.nameTextField.text = dataManager.productToEdit.productName;
         self.urlTextField.text = dataManager.productToEdit.productURLString;
         self.imageTextField.text = dataManager.productToEdit.productImageString;
+        self.title = @"Edit Product";
     }
     if (!self.editMode){
         self.imageTextField.text = @"Sunflower.gif";
+        [self.deleteProductOutlet setHidden:YES];
+        self.title = @"Add Product";
     }
 
 }
@@ -84,6 +87,7 @@
     [_nameTextField release];
     [_urlTextField release];
     [_imageTextField release];
+    [_deleteProductOutlet release];
     [super dealloc];
 }
 
