@@ -268,10 +268,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
      DAO *dataManager = [DAO dataManager];
+    Company *company = self.companyList[[indexPath row]];
+
     
     if (tableView.editing == YES) {
-        Company *company = self.companyList[[indexPath row]];
-        self.addEditViewController = [[AddEditViewController alloc]init];
+               self.addEditViewController = [[AddEditViewController alloc]init];
         self.addEditViewController.title = @"Edit Company";
        
         //Setting a specific company and edit mode switch for the add/edit view controller to use
@@ -284,6 +285,7 @@
 
     self.productListViewController = [[ProductListViewController alloc]init];
     self.productListViewController.company = self.companyList[[indexPath row]];
+   
     [self.navigationController
         pushViewController:self.productListViewController
         animated:YES];

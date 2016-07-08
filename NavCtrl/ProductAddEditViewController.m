@@ -80,7 +80,9 @@
 */
 - (IBAction)deleteProductButton:(id)sender {
     DAO *dataManager = [DAO dataManager];
-    [dataManager deleteProduct:dataManager.productToEdit inCompany:dataManager.companyToEdit];
+    [dataManager deleteProduct:dataManager.productToEdit inCompany:dataManager.companyToAppend];
+    [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+
 }
 
 - (void)dealloc {
